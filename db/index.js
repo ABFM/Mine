@@ -12,9 +12,17 @@ const userSchema = mongoose.Schema({
   userName: String,
   passWord: String
 });
-
+const urlSchema = mongoose.Schema({
+  url: String,
+  category: String,
+  userName: String,
+  likes: Number,
+  comments: [String]
+})
+const Url = mongoose.model('Url', urlSchema)
 const User = mongoose.model('User', userSchema);
 
 
 
-module.exports = User;
+module.exports.User = User;
+module.exports.Url = Url;
