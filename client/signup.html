@@ -1,0 +1,80 @@
+	<div class = "container-fluid row">
+		<!-- <div class= "col-mid-6"></div>
+		<div class= "col-mid-6"> -->	
+			<h1>Mine</h1>
+	<table class="table">
+
+		<tr>
+
+			<th>
+				<input type="text" ng-model="$ctrl.loginUsername" placeholder="type you name" class = "center-block">
+			</th>
+			<th>
+					<input type="password" ng-model="$ctrl.loginPassword">
+			</th>
+			<th>
+				<button ng-click=$ctrl.addClickLogin()> Login</button>
+			</th>
+		</tr>
+	</table>
+<!-- </div> -->
+</div>
+
+
+
+	<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5> <strong>Sign up </strong></h5>
+					<form class="" >
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Your Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name" ng-model="$ctrl.username" placeholder="Enter your Name"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="email" id="email" ng-model="$ctrl.email" placeholder="Enter your Email"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" ng-model="$ctrl.password" id="password"  placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" ng-model="$ctrl.confirmPassword" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+				
+							<button type="button" ng-click="$ctrl.addClick()" style="color:black"> <strong>Register </strong></button>
+							
+						</div>
+						
+					</form>
+				</div>
+			</div>
+
+		</div>

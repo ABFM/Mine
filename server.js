@@ -6,7 +6,6 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser');
 const util = require('./helpers/utility');
 const bcrypt = require('bcrypt');
- const SALT_WORK_FACTOR = 10;
 const app = express()
 
 // using of modules-------------------
@@ -31,9 +30,9 @@ app.get('/', util.checkUser, function(req, res) {
 
 
 app.post('/login',function(req, res){
-  var username = req.body.username;
+  var userName = req.body.userName;
   var password = req.body.password;
-  db.User.find({userName:username}, function(err, data){
+  db.User.find({userName:userName}, function(err, data){
     if(err){
         console.log(err);
       }
@@ -66,10 +65,10 @@ app.get('/logout', function(req, res) {
 
 
 app.post('/signup', function(req, res){
-  let username = req.body.username;
+  let userName = req.body.userName;
   let password = req.body.password;
   db.User.find({
-    userName: username
+    userName: userName
   }, function(err, data){
 
     if (err) {
@@ -83,10 +82,10 @@ app.post('/signup', function(req, res){
         res.redirect('/')
       }
       else {
-        bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
+        bcrypt.genSalt(10, function (err, salt) {
         if (err) console.log(err);
         bcrypt.hash(password, salt, function(err, hash) {
-          let user = db.User({userName: username, passWord: hash})
+          let user = db.User({userName: userName, passWord: hash})
           user.save((err, data) =>{
             if (err){
               console.log(err);
@@ -102,7 +101,35 @@ app.post('/signup', function(req, res){
     }
 })
 });
+app.post('/fetch', function (req, res){
+  db.Url.find(req.body, function(err, data){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.send(data);
+    }
+  })
+});
 
+app.post('/add', function(req, res){
+  let url = new db.Url({
+  url: req.body.url,
+  urlName: req.body.urlName,
+  category: req.body.category,
+  userName: req.session.user,
+  likes: 0
+  });
+  url.save(function(err,data){
+    if(err){
+      console.log(err)
+    }
+    else {
+      console.log('saved', data);
+    }
+  })
 
+});
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+const port = process.env.port || 3000;
+app.listen(port, () => console.log('Example app listening on port 3000!'))
