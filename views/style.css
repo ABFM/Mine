@@ -5,33 +5,33 @@
 }
 body, html{
      height: 100%;
- 	background-repeat: no-repeat;
- 	background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
- 	font-family: 'Oxygen', sans-serif;
-	    background-size: cover;
+    background-repeat: no-repeat;
+    background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
+    font-family: 'Oxygen', sans-serif;
+        background-size: cover;
 }
 
 .main{
- 	margin:50px 15px;
+    margin:50px 15px;
 }
 
 h1.title { 
-	font-size: 50px;
-	font-family: 'Passion One', cursive; 
-	font-weight: 400; 
+    font-size: 50px;
+    font-family: 'Passion One', cursive; 
+    font-weight: 400; 
 }
 
 hr{
-	width: 10%;
-	color: #fff;
+    width: 10%;
+    color: #fff;
 }
 
 .form-group{
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 label{
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 input,
@@ -41,7 +41,7 @@ input::-webkit-input-placeholder {
 }
 
 .main-login{
- 	background-color: #fff;
+    background-color: #fff;
     /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -83,14 +83,14 @@ padding: 8px 12px !important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
 }
 .main-center{
- 	margin-top: 30px;
- 	margin: 0 auto;
- 	max-width: 400px;
+    margin-top: 30px;
+    margin: 0 auto;
+    max-width: 400px;
     padding: 10px 40px;
-	background:#009edf;
-	    color: #FFF;
+    background:#009edf;
+        color: #FFF;
     text-shadow: none;
-	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 
@@ -101,10 +101,10 @@ span.input-group-addon i {
 }
 
 .login-button{
-	margin-top: 5px;
+    margin-top: 5px;
 }
 
 .login-register{
-	font-size: 11px;
-	text-align: center;
+    font-size: 11px;
+    text-align: center;
 }

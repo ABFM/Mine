@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 
+	 
+	<title>
+		
+	</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app= 'app'>
+
+
+<div class= "container-fluid" ng-controller = 'myCtrl'>
+ <!-- login  -->
+   <div class="container" ng-show="myVar">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5> <strong> Login </strong></h5>
+					<form class="" >
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name"  ng-model="loginUsername" placeholder="Enter your Username"/>
+								</div>
+							</div>
+						</div>
+
+						
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password"  ng-model="loginPassword"   placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+			
+
+						<div class="form-group ">
+				
+							<button type="button"  style="color:black" ng-click=addClickLogin()> <strong>Login </strong></button>
+							    						<p class="psw" >don't have an account yet?<a href="#" ng-click= "myVar= false" style="color:black" >Signup</a> </p>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+
+		</div>
+<!-- sign up -->
+
+	<div class="container" ng-hide="myVar">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5> <strong>Sign up </strong></h5>
+					<form class="" >
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Your Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name" ng-model="username" placeholder="Enter your Name"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="email" id="email" ng-model="email" placeholder="Enter your Email"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" ng-model="password" id="password"  placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" ng-model="confirmPassword" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+				
+							<button type="button" ng-click="addClick()" style="color:black"> <strong>Register </strong></button>
+							
+						</div>
+						
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
