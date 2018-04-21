@@ -1,0 +1,28 @@
+<div class="container">
+	<table class= "table">
+		<tr>
+			<th>
+				<input type="text" name="" ng-model='name'>
+			</th>
+			<th>
+				<input type="text" name="" ng-model='url'>
+			</th>
+			<th>
+				<button ng-click='addUrl(name,url,"/videos")'>
+					Add to your Urls
+				</button>
+			</th>
+
+		</tr>
+	</table>
+	<ul ng-repeat = 'url in urls'>
+		<li>
+			
+			<a href={{url.url}}>{{url.name}}</a> 
+			
+		</li>
+
+	</ul>
+
+
+</div>

@@ -1,0 +1,57 @@
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!DOCTYPE html>
+<html>
+<head>
+   
+   
+  <title>
+    
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app= 'app2'>
+<!--  <div ng-view></div>
+  <a href="#!login">login</a>
+<a href="#!signup">signup</a> -->
+
+<div class= "container-fluid" ng-controller = 'myCtrl2'>
+<div class="container-fluid">
+  <h2>Mine App</h2>
+</div>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+     
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="#!videos" ng-click='getVideos()'>Videos</a></li>
+        <li><a href="#!Articles" ng-click='getArticles()'>Articles</a></li>
+        <li><a href="#!Photos" ng-click='getPhotos()'>Photos</a></li>
+        <li><a href="#!Music" ng-click='getMusic()'>Music</a></li>
+        <li><a href="#!Others" ng-click='getOthers()'>Other</a></li>
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search ..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>  
+    
+      <div class="col-sm-9" ng-view></div>
+    
+
+  </div>
+</div>
+ </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="main.js"></script>
+</body>
+</html>   
+
