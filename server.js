@@ -65,8 +65,9 @@ app.get('/logout', function(req, res) {
 
 
 app.post('/signup', function(req, res){
-  let userName = req.body.userName;
+  let userName = req.body.username;
   let password = req.body.password;
+  let email = req.body.email;
   db.User.find({
     userName: userName
   }, function(err, data){
@@ -85,7 +86,11 @@ app.post('/signup', function(req, res){
         bcrypt.genSalt(10, function (err, salt) {
         if (err) console.log(err);
         bcrypt.hash(password, salt, function(err, hash) {
-          let user = db.User({userName: userName, passWord: hash})
+          let user = db.User({
+            userName: userName,
+            passWord: hash,
+            email: email
+          })
           user.save((err, data) =>{
             if (err){
               console.log(err);
