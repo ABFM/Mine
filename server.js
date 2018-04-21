@@ -9,17 +9,16 @@ const bcrypt = require('bcrypt');
 const app = express()
 
 // using of modules-------------------
-// app.set('views', __dirname + '/client');
-// app.set('view engine', 'ejs');
-// app.use(partials());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'client')))
+app.use(express.static(path.join(__dirname, 'views')))
 app.use(session({
   secret: "shhh, it is a secret",
   resave: false,
   saveUninitialized: true
 }))
+
 // the routes handlers----------------
 
 
