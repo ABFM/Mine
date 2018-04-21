@@ -9,17 +9,16 @@ const bcrypt = require('bcrypt');
 const app = express()
 
 // using of modules-------------------
-// app.set('views', __dirname + '/client');
-// app.set('view engine', 'ejs');
-// app.use(partials());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'client')))
+app.use(express.static(path.join(__dirname, 'views')))
 app.use(session({
   secret: "shhh, it is a secret",
   resave: false,
   saveUninitialized: true
 }))
+
 // the routes handlers----------------
 
 
@@ -65,8 +64,9 @@ app.get('/logout', function(req, res) {
 
 
 app.post('/signup', function(req, res){
-  let userName = req.body.userName;
+  let userName = req.body.username;
   let password = req.body.password;
+  let email = req.body.email;
   db.User.find({
     userName: userName
   }, function(err, data){
@@ -85,7 +85,11 @@ app.post('/signup', function(req, res){
         bcrypt.genSalt(10, function (err, salt) {
         if (err) console.log(err);
         bcrypt.hash(password, salt, function(err, hash) {
-          let user = db.User({userName: userName, passWord: hash})
+          let user = db.User({
+            userName: userName,
+            passWord: hash,
+            email: email
+          })
           user.save((err, data) =>{
             if (err){
               console.log(err);

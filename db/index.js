@@ -10,7 +10,8 @@ db.once('open', function() {
 
 const userSchema = mongoose.Schema({
   userName: String,
-  passWord: String
+  passWord: String,
+  email: String
 });
 const urlSchema = mongoose.Schema({
   url: String,
