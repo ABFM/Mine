@@ -14,10 +14,10 @@ const userSchema = mongoose.Schema({
 });
 const urlSchema = mongoose.Schema({
   url: String,
+  urlName: String,
   category: String,
   userName: String,
-  likes: Number,
-  comments: [String]
+  likes: Number
 })
 const Url = mongoose.model('Url', urlSchema)
 const User = mongoose.model('User', userSchema);
