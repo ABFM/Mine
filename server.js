@@ -29,7 +29,7 @@ app.get('/', util.checkUser, function(req, res) {
 
 
 app.post('/login',function(req, res){
-  var userName = req.body.userName;
+  var userName = req.body.username;
   var password = req.body.password;
   db.User.find({userName:userName}, function(err, data){
     if(err){
@@ -64,11 +64,11 @@ app.get('/logout', function(req, res) {
 
 
 app.post('/signup', function(req, res){
-  let userName = req.body.username;
+  let username = req.body.username;
   let password = req.body.password;
   let email = req.body.email;
   db.User.find({
-    userName: userName
+    userName: username
   }, function(err, data){
 
     if (err) {
@@ -86,7 +86,7 @@ app.post('/signup', function(req, res){
         if (err) console.log(err);
         bcrypt.hash(password, salt, function(err, hash) {
           let user = db.User({
-            userName: userName,
+            userName: username,
             passWord: hash,
             email: email
           })
@@ -119,7 +119,7 @@ app.post('/fetch', function (req, res){
 app.post('/add', function(req, res){
   let url = new db.Url({
   url: req.body.url,
-  urlName: req.body.urlName,
+  urlName: req.body.name,
   category: req.body.category,
   userName: req.session.user,
   likes: 0

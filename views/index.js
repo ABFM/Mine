@@ -4,7 +4,7 @@ var app =angular.module('app', ["ngRoute"])
 app.controller('myCtrl', ['$scope','$http','$window','$location',function($scope,$http,$window,$location){
 
   
- $scope.myVar = true
+$scope.myVar = true
 $scope.addClickLogin = function(){
   console.log('ay eshi!')
 var req = {
