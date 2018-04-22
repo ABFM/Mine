@@ -11,7 +11,7 @@
 				<input type="text" name="" ng-model = 'url'>
 			</th>
 			<th>
-				<button ng-click='addUrl(name,url,"Articles")'>
+				<button ng-click='addUrl(name,url,"articles")'>
 					Add to your Urls
 				</button>
 			</th>
@@ -20,7 +20,7 @@
 	</table>
 	<ul ng-repeat = 'url in urls'>
 		<li>
-			<a href={{url.url}}>{{url.name}}</a> 
+			<a href={{url.url}}>{{url.urlName}}</a>
 		</li>
 
 	</ul>
