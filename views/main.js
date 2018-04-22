@@ -178,7 +178,58 @@ $http(req).then(function(data){
   console.log(err);
 })
 }
+$scope.like = function(username,name){
+  var req = {
+ method: 'POST',
+ url: '/like',
+  headers: {
+   'Content-Type': 'application/json'
+ },
+ data: { username:username,name:name }
+}
 
+$http(req).then(function(data){
+ console.log("success like")
+
+ // $window.location.reload()
+}, function(err){
+  console.log(err);
+})
+}
+$scope.unlike = function(username,name){
+  var req = {
+ method: 'POST',
+ url: '/unlike',
+  headers: {
+   'Content-Type': 'application/json'
+ },
+ data: { username:username,name:name }
+}
+
+$http(req).then(function(data){
+ console.log("success inlike")
+
+ // $window.location.reload()
+}, function(err){
+  console.log(err);
+})
+}
+$scope.import = function(username,name){
+  var req = {
+ method: 'POST',
+ url: '/import',
+  headers: {
+   'Content-Type': 'application/json'
+ },
+ data: { username:username,name:name }
+}
+
+$http(req).then(function(data){
+ console.log("success import")
+}, function(err){
+  console.log(err);
+})
+}
  $scope.search = function (username) {
 
     var req = {
