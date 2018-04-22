@@ -1,9 +1,10 @@
 <div class="container">
-	
-	<ul ng-repeat = 'url in urls'>
-		<li>
+
+	<ul ng-repeat = 'url in urls | filter: searching'>
+		<li style="background-color: aliceblue; padding: 10px; font-size:20px;">
 
 			<a href={{url.url}}>{{url.urlName}}</a>
+			<br>
 			<button class="btn btn-danger" ng-click= delete(url.urlName)>delete</button>		</li>
 
 	</ul>
