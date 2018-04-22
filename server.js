@@ -31,7 +31,7 @@ app.get('/', util.checkUser, function(req, res) {
 app.post('/login',function(req, res){
   var userName = req.body.username;
   var password = req.body.password;
-  db.User.find({userName:userName}, function(err, data){
+  db.User.findOne({userName:userName}, function(err, data){
     if(err){
         console.log(err);
       }
@@ -39,17 +39,20 @@ app.post('/login',function(req, res){
         if (!data) {
           res.sendStatus(404)
         }
-      bcrypt.compare(password, data[0].passWord, function(err, match){
-        if(match) {
-          res.status(201)
-          util.createSession(req, res, data[0]);
-        }
         else {
-          console.log('err');
-          res.status(404)
-          res.redirect('/')
+          bcrypt.compare(password, data.passWord, function(err, match){
+            if(match) {
+              res.status(201)
+              util.createSession(req, res, data.userName);
+            }
+            else {
+              console.log('err');
+              res.status(404)
+              res.redirect('/')
+            }
+          })
         }
-      })
+
       }
     })
   })
@@ -58,7 +61,7 @@ app.post('/login',function(req, res){
 
 app.get('/logout', function(req, res) {
   req.session.destroy(function() {
-    res.redirect('/');
+    res.sendStatus(200);
   });
 });
 
@@ -106,11 +109,15 @@ app.post('/signup', function(req, res){
 })
 });
 app.post('/fetch', function (req, res){
-  db.Url.find(req.body, function(err, data){
+  db.Url.find({
+    category: req.body.category,
+    userName: req.session.user
+  }, function(err, data){
     if(err){
       console.log(err);
     }
     else{
+      console.log('data', data);
       res.send(data);
     }
   })
@@ -130,6 +137,7 @@ app.post('/add', function(req, res){
     }
     else {
       console.log('saved', data);
+      res.sendStatus(201)
     }
   })
 
