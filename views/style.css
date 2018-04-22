@@ -5,9 +5,9 @@
 }
 body, html{
      height: 100%;
-    background-color: #eee;
+    background-color: #F0F2F0;
     font-family: 'Oxygen', sans-serif;
-        background-size: cover;
+    background-size: cover;
 }
 
 .main{
@@ -63,7 +63,7 @@ padding: 8px 12px !important;
     border: 1px solid #ccc;
     margin-top: 28px;
     padding: 6px 12px;
-    color: #666;
+    color: #001920;
     text-shadow: 0 1px #fff;
     cursor: pointer;
     -moz-border-radius: 3px 3px;
@@ -86,8 +86,8 @@ padding: 8px 12px !important;
     margin: 0 auto;
     max-width: 400px;
     padding: 10px 40px;
-    background:#009edf;
-        color: #FFF;
+    background:#002937;
+        color: #F0F2F0;
     text-shadow: none;
     -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
@@ -95,7 +95,7 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 
 }
 span.input-group-addon i {
-    color: #009edf;
+    color: #D82668;
     font-size: 17px;
 }
 
@@ -106,4 +106,7 @@ span.input-group-addon i {
 .login-register{
     font-size: 11px;
     text-align: center;
+}
+th{
+  color: #black;
 }
