@@ -19,6 +19,7 @@ app.config(["$routeProvider", function($routeProvider) {
     })
 }])
 app.controller('myCtrl2', ['$scope','$http','$window',function($scope,$http,$window){
+
 $scope.getVideos = function(){
     var req = {
  method: 'POST',
