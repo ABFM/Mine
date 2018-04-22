@@ -143,5 +143,51 @@ app.post('/add', function(req, res){
 
 });
 
+app.post('/delete', function(req,res) {
+  const name = req.body.name;
+  db.Url.remove({urlName: name}, function(err,data){
+    if(err){
+      console.log(err);
+    } else {
+    res.sendStatus(200)
+    }
+  });
+})
+
+app.post('/searchUser', function(req, res) {
+  const username = req.body.username;
+  db.Url.find({userName:username}, function(err, data) {
+    if(err){
+      console.log(err);
+    } else {
+      res.json(data);
+    }
+  })
+})
+
+app.post('/import', function(req, res) {
+  db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
+    if(err) {
+      console.log(err);
+    } else {
+      const imported = new db.Url({
+        url: data.url,
+        urlName: data.name,
+        category: data.category,
+        userName: req.session.user,
+        likes: data.likes
+      })
+      imported.save(function(err, data){
+        if(err) {
+          console.log(err);
+        } else {
+          console.log('saved ',data);
+        }
+      })
+    }
+  });
+
+})
+
 const port = process.env.port || 3000;
 app.listen(port, () => console.log('Example app listening on port 3000!'))

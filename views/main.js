@@ -1,6 +1,9 @@
 var app =angular.module('app2',["ngRoute"])
 app.config(["$routeProvider", function($routeProvider) {
     $routeProvider
+    .when("/Home", {
+        templateUrl : 'home.html'
+      })
     .when("/Videos", {
         templateUrl : 'videos.html'
       })
@@ -104,7 +107,7 @@ $http(req).then(function(data){
 }
 
 $scope.addUrl = function (name,url, category){
-
+console.log(category)
  var req = {
  method: 'POST',
  url: '/add',
@@ -157,4 +160,42 @@ $scope.init = function (){
 
 }
 }
+
+$scope.delete = function(name){
+  var req = {
+ method: 'POST',
+ url: '/delete',
+  headers: {
+   'Content-Type': 'application/json'
+ },
+ data: { name:name }
+}
+
+$http(req).then(function(data){
+  console.log('alo alo lao')
+ $window.location.reload()
+}, function(err){
+  console.log(err);
+})
+}
+
+ $scope.search = function (username) {
+
+    var req = {
+ method: 'POST',
+ url: '/searchUser',
+  headers: {
+   'Content-Type': 'application/json'
+ },
+ data: { username:username }
+}
+
+$http(req).then(function(data){
+ $scope.usernames = data['data']
+}, function(err){
+  console.log(err);
+})
+ }
+
+
 }])
