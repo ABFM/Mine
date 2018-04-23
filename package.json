@@ -1,0 +1,31 @@
+{
+  "name": "mine",
+  "version": "1.0.0",
+  "description": "green-field",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoaby/Mine.git"
+  },
+  "author": "pudge team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zoaby/Mine/issues"
+  },
+  "homepage": "https://github.com/zoaby/Mine#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "angular": "^1.6.10",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.15",
+    "node": "^9.11.0",
+    "nodemon": "^1.17.3"
+  }
+}
