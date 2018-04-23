@@ -4,10 +4,12 @@
     -webkit-overflow-scrolling: touch;
 }
 body, html{
-     height: 100%;
-    background-color: #F0F2F0;
-    font-family: 'Oxygen', sans-serif;
-    background-size: cover;
+
+   height: 100%;
+   background-color: #F0F2F0;
+   font-family: 'Oxygen', sans-serif;
+   background-size: cover;
+
 }
 
 .main{
@@ -52,7 +54,9 @@ input::-webkit-input-placeholder {
 }
 .form-control {
     height: auto!important;
-padding: 8px 12px !important;
+
+    padding: 8px 12px !important;
+
 }
 .input-group {
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
@@ -87,11 +91,13 @@ padding: 8px 12px !important;
     max-width: 400px;
     padding: 10px 40px;
     background:#002937;
-        color: #F0F2F0;
+
+    color: #F0F2F0;
     text-shadow: none;
     -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
--moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+
 
 }
 span.input-group-addon i {

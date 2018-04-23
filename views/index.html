@@ -2,8 +2,10 @@
 <html>
 <head>
 
-	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>
+		Mine App
 
 	</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,13 +13,15 @@
 </head>
 <body ng-app= 'app'>
 
+<!-- login and signup pages -->
 
-<div class= "container-fluid" ng-controller = 'myCtrl'>
- <!-- login  -->
-   <div class="container" ng-show="myVar">
+	<div class= "container-fluid" ng-controller = 'myCtrl'>
+		<!-- login  -->
+		<div class="container" ng-show="myVar">
 			<div class="row main">
 				<div class="main-login main-center">
-				<h5> <strong> Login </strong></h5>
+					<h5> <strong> Login </strong></h5>
+
 					<form class="" >
 
 						<div class="form-group">
@@ -45,7 +49,9 @@
 						<div class="form-group ">
 
 							<button type="button"  style="color:black" ng-click=addClickLogin()> <strong>Login </strong></button>
-							    						<p class="psw" >don't have an account yet?<a href="#" ng-click= "myVar= false" style="color:black" >Signup</a> </p>
+
+							<p class="psw" >don't have an account yet?<a href="#" ng-click= "myVar= false" style="color:black" >Signup</a> </p>
+
 						</div>
 
 					</form>
@@ -53,20 +59,23 @@
 			</div>
 
 		</div>
-<!-- sign up -->
 
-	<div class="container" ng-hide="myVar">
+		<!-- sign up -->
+
+		<div class="container" ng-hide="myVar">
 			<div class="row main">
 				<div class="main-login main-center">
-				<h5> <strong>Sign up </strong></h5>
+					<h5> <strong>Sign up </strong></h5>
 					<form class="" >
 
 						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
+							<label for="name" class="cols-sm-2 control-label">Your Username</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name" ng-model="username" placeholder="Enter your Name"/>
+									<input type="text" class="form-control" name="name" id="name" ng-model="username" placeholder="Enter your Username"/>
+
+
 								</div>
 							</div>
 						</div>
@@ -119,10 +128,12 @@
 
 
 
+
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 <script src="index.js"></script>
+
 </body>
 </html>
