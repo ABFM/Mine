@@ -57,6 +57,8 @@ app.post('/login',function(req, res){
             if(match) {
               res.status(201)
               util.createSession(req, res, data.userName);
+              console.log(req.session);
+              
             }
             // if the passWord is not valid
             else {
@@ -79,8 +81,8 @@ app.get('/logout', function(req, res) {
   req.session.destroy(function() {
     res.sendStatus(200);
   });
-});
-
+  console.log(req.session);
+})
 
 
 
@@ -235,11 +237,6 @@ app.post('/import', function(req, res) {
 
 
 
-// to increase the like counter by 1 *******************************************
-
-
-
-// to decrease the like counter by 1 *******************************************
 
 
 
@@ -250,6 +247,6 @@ app.post('/import', function(req, res) {
 
 
 
-// run the server 😎 
+
 const port = process.env.port || 3000;
 app.listen(port, () => console.log('Example app listening on port 3000!'))
