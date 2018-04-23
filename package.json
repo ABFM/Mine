@@ -4,7 +4,8 @@
   "description": "green-field",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
