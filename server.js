@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const util = require('./helpers/utility');
 const bcrypt = require('bcrypt');
 const app = express()
- //const engine = require('ejs')
+
 // using of modules-------------------
 
 app.use(bodyParser.json());
@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'views')))
 app.use(session({
   secret: "shhh, it is a secret",
+
   resave: false,
   saveUninitialized: true
 }))
@@ -31,11 +32,6 @@ app.get('/', util.checkUser, function(req, res) {
    res.render('index');
 
 });
-// app.get('/main',function(req, res) {
-//    console.log("sth")
-//   res.render('main')
-
-// });
 
 
 app.post('/login',function(req, res){
@@ -172,10 +168,13 @@ app.post('/searchUser', function(req, res) {
     if(err){
       console.log(err);
     } else {
-      res.send(data);
+
+      res.json(data);
+
     }
   })
 })
+
 
 app.post('/import', function(req, res) {
   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
@@ -211,6 +210,31 @@ app.post('/like',function(req,res){
   });
 
 })
+
+// app.post('/import', function(req, res) {
+//   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
+//     if(err) {
+//       console.log(err);
+//     } else {
+//       const imported = new db.Url({
+//         url: data.url,
+//         urlName: data.name,
+//         category: data.category,
+//         userName: req.session.user,
+//         likes: data.likes
+//       })
+//       imported.save(function(err, data){
+//         if(err) {
+//           console.log(err);
+//         } else {
+//           console.log('saved ',data);
+//         }
+//       })
+//     }
+//   });
+//
+// })
+
 
 const port = process.env.port || 3000;
 app.listen(port, () => console.log('Example app listening on port 3000!'))

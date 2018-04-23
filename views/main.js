@@ -1,3 +1,4 @@
+
 var app =angular.module('app2',["ngRoute"]) //importing ngRoute is important for the config./routeProvider.
 app.config(["$routeProvider", function($routeProvider) {
     $routeProvider // render one of these html pages inside the div of ng-view depending on route provided
@@ -31,11 +32,13 @@ $scope.getVideos = function(){ //fetch the videos urls from the database
  }
 
  $http(req).then(function(data){
+
   $scope.urls = data['data']
 }, function(err){console.log(err);
 
 })
 }
+
 
  $scope.getArticles = function(){ //nafs al eshi
    var req = {
@@ -131,6 +134,7 @@ $window.location.reload() //to refresh the page in order to show the newly added
 
 
 $scope.logout= function(){ //redirect the user to the login page.
+
   var req= {
     method: 'GET',
     url: '/logout'
@@ -139,6 +143,7 @@ $scope.logout= function(){ //redirect the user to the login page.
     $window.location.href = '/';
   },function(){})
 }
+
 
 $scope.init = function (){ //this is the constuctor which is called when loading the page.
   var route=$window.location.href.split("!")[1]; 
@@ -175,11 +180,13 @@ $scope.delete = function(name){ //deletes a specific url.
  $http(req).then(function(data){
    $window.location.reload()
  }, function(err){
+
   console.log(err);
 })
 }
 $scope.like = function(username,name){
   var req = {
+
    method: 'POST',
    url: '/like',
    headers: {
@@ -220,6 +227,7 @@ $scope.unlike = function(username,name){
 }
 $scope.import = function(username,name){
   var req = {
+
    method: 'POST',
    url: '/import',
    headers: {
@@ -252,6 +260,7 @@ $scope.searchUser = username;
 })
 
 }
+
 
 
 }])
