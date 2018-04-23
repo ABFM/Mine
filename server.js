@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'views')))
 app.use(session({
   secret: "shhh, it is a secret",
-  resave: false,
+  resave: true,
   saveUninitialized: true
 }))
 
@@ -44,6 +44,7 @@ app.post('/login',function(req, res){
             if(match) {
               res.status(201)
               util.createSession(req, res, data.userName);
+
             }
             else {
               console.log('err');
@@ -78,7 +79,6 @@ app.post('/signup', function(req, res){
       console.log(err);
     }
     else {
-      console.log(data);
       if (data.length > 0) {
         res.status(404)
         console.log('already exist');
@@ -99,7 +99,8 @@ app.post('/signup', function(req, res){
             }
             else {
               console.log(data);
-              res.redirect('/')
+              util.createSession(req, res, data.userName);
+              
             }
           })
         })
@@ -131,6 +132,7 @@ app.post('/add', function(req, res){
   userName: req.session.user,
   likes: 0
   });
+  console.log(req.session);
   url.save(function(err,data){
     if(err){
       console.log(err)
@@ -165,28 +167,29 @@ app.post('/searchUser', function(req, res) {
   })
 })
 
-app.post('/import', function(req, res) {
-  db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
-    if(err) {
-      console.log(err);
-    } else {
-      const imported = new db.Url({
-        url: data.url,
-        urlName: data.name,
-        category: data.category,
-        userName: req.session.user,
-        likes: data.likes
-      })
-      imported.save(function(err, data){
-        if(err) {
-          console.log(err);
-        } else {
-          console.log('saved ',data);
-        }
-      })
-    }
-  });
+// app.post('/import', function(req, res) {
+//   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
+//     if(err) {
+//       console.log(err);
+//     } else {
+//       const imported = new db.Url({
+//         url: data.url,
+//         urlName: data.name,
+//         category: data.category,
+//         userName: req.session.user,
+//         likes: data.likes
+//       })
+//       imported.save(function(err, data){
+//         if(err) {
+//           console.log(err);
+//         } else {
+//           console.log('saved ',data);
+//         }
+//       })
+//     }
+//   });
+//
+// })
 
-})
 const port = process.env.port || 3000;
 app.listen(port, () => console.log('Example app listening on port 3000!'))
