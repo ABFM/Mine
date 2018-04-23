@@ -1,0 +1,54 @@
+<table class= "table" style="padding: 20px; margin: 30px;">
+	<tr>
+		<th>
+			Name
+			<input type="text" name="" ng-model='name'>
+
+		</th>
+		<th>
+			Url
+			<input type="text" name="" ng-model = 'url'>
+		</th>
+		<th>
+			Select category
+			<select ng-model = "val">
+				<option value="videos">videos</option>
+				<option value="articles">articles</option>
+				<option value="photos">photos</option>
+				<option value="music">music</option>
+				<option value="others">others</option>
+
+			</select>
+			<th>
+				<button ng-click='addUrl(name,url,val)'>
+					Add to your Urls
+				</button>
+			</th>
+
+		</tr>
+	</table>
+	<h3>search for other users</h3>
+	<div class="input-group" style="padding: 20px; margin: 30px;">
+
+		<input type="text" class="form-control" placeholder="Search .." ng-model = 'username'>
+
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button" ng-click = search(username)>
+				<span class="glyphicon glyphicon-search"></span>
+			</button>
+
+		</span>
+
+	</div>
+	<br>
+	<div>
+		<ul ng-repeat = "username in usernames | filter: username">
+			<li>
+				<div style="background-color: aliceblue; padding: 20px;"><h4>user name : </h4>{{username.userName}} <br> <h4>category :</h4> {{username.category}} <br> <h4>link:</h4> <a href = '{{username.url}}' target="_blank"> {{username.urlName}} </a><br> Likes: {{username.likes}}</div> <div><button class="btn btn-primary"  ng-hide=var ng-click="var=true ;like(username.userName,username.urlName)"><i class="fa fa-thumbs-up">Like</i> </button>
+					<button class="btn btn-primary"  ng-show=var ng-click="var=false ;unlike(username.userName,username.urlName)"><i class="fa fa-thumbs-up">UnLike</i> </button>
+					<button type="button" class="btn btn-success" ng-click="import(username.userName,username.urlName)">Add to Mine</button>
+				</div>
+			</ul>
+			
+
+		</div>
