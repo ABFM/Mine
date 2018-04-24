@@ -30,7 +30,7 @@ app.engine('html', require('ejs').renderFile);
 // the routes handlers----------------
 
 app.get('/', util.checkUser, function(req, res) {
-   res.render('index');
+   res.render('hi');
 
 });
 
