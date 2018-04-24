@@ -2,7 +2,7 @@
   "name": "mine",
   "version": "1.0.0",
   "description": "green-field",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "npm test",
     "start": "nodemon server.js"
@@ -22,7 +22,6 @@
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
-    "ejs": "^2.5.9",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "jquery": "^3.1.1",

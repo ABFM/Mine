@@ -12,7 +12,7 @@ const app = express()
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'views')))
+app.use(express.static(__dirname + '/views')))
 app.use(session({
   secret: "shhh, it is a secret",
 
@@ -22,8 +22,6 @@ app.use(session({
   saveUninitialized: true
 }))
 app.set('view engine', 'html');
-app.set('views',path.join(__dirname,'views'))
-app.engine('html', require('ejs').renderFile);
 
 
 
