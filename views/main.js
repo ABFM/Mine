@@ -2,6 +2,9 @@
 var app =angular.module('app2',["ngRoute"]) //importing ngRoute is important for the config./routeProvider.
 app.config(["$routeProvider", function($routeProvider) {
     $routeProvider // render one of these html pages inside the div of ng-view depending on route provided
+    .when("/", {
+      templateUrl : 'home.html'
+    })
     .when("/Home", {
       templateUrl : 'home.html'
     })
@@ -223,8 +226,8 @@ $scope.like = function(username,name){
  }, function(err){
   console.log(err);
 })
-  
-  
+
+
 }
 $scope.unlike = function(username,name){
   var req = {

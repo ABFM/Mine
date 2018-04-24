@@ -13,41 +13,41 @@
 </head>
 <body ng-app= 'app2'>
 <div  ng-controller = 'myCtrl2' ng-init='init()'>
+  <ul class="nav  nav-pills bar">
+    <li ng-click='logout()' class="pull-right logout">Logout</li>
+    <li class="pull-right">
+          <h5 class="col-sm-9">{{user.userName}}</h5>
+          <h5 class="col-sm-9">{{user.email}}</h5>
+          <img src="profile.png" alt="" width="70px">
 
-  <button ng-click='logout()'>Logout</button>
-<div class="container-fluid" >
-  <img src="logo.png" style="width: 75px;/>
-  Welcome To mine !
-  mine is yours!
-</div>
+        </li>
+
+        <li><img src="logo.png" style="width: 70px;"/> </li>
+  </ul>
+
+
 
 <div class="container-fluid">
   <div class="row content">
 
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-3 sidenav">
 
-      <ul class="nav nav-pills nav-stacked">
-        <li class="menuitem"><a href="#!Home" class="menu">Home</a></li>
-        <li class="menuitem"><a href="#!Videos" ng-click='getVideos()' class="menu">Videos</a></li>
-        <li class="menuitem"><a href="#!Articles" ng-click='getArticles()' class="menu">Articles</a></li>
-        <li class="menuitem"><a href="#!Photos" ng-click='getPhotos()' class="menu">Photos</a></li>
-        <li class="menuitem"><a href="#!Music" ng-click='getMusic()' class="menu">Music</a></li>
-        <li class="menuitem"><a href="#!Others" ng-click='getOthers()' class="menu">Other</a></li>
+      <ul class="nav nav-pills nav-stacked menuAll">
+        <li ><a href="#!Home" class="menu">Home</a></li>
+        <li ><a href="#!Videos" ng-click='getVideos()' class="menu">Videos</a></li>
+        <li ><a href="#!Articles" ng-click='getArticles()' class="menu">Articles</a></li>
+        <li ><a href="#!Photos" ng-click='getPhotos()' class="menu">Photos</a></li>
+        <li ><a href="#!Music" ng-click='getMusic()' class="menu">Music</a></li>
+        <li ><a href="#!Others" ng-click='getOthers()' class="menu">Other</a></li>
       </ul><br>
 
     </div>
-    <div class="profile col-sm-10" >
-      <div class="name col-sm-5">
-        <img src="profile.png" alt="" width="75px" class="col-sm-3">
-        <h5 class="col-sm-9">{{user.userName}}</h5>
-        <h5 class="col-sm-9">{{user.email}}</h5>
 
 
-      </div>
-    </div>
       <div class="col-sm-9" ng-view></div>
 
 
+      </div>
       </div>
 </div>
  </div>
