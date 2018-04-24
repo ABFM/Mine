@@ -4,7 +4,7 @@
 exports.createSession = (req, res, newUser) => {
   return req.session.regenerate(() => {
     req.session.user = newUser;
-    res.redirect('/');
+    res.redirect('/')
   });
 }
 
@@ -19,7 +19,6 @@ exports.isLoggedIn = (req, res) => {
 exports.checkUser = (req, res, next) => {
   if (!exports.isLoggedIn(req)) {
     res.status(404)
-    res.redirect('/')
   }
   else {
     next();

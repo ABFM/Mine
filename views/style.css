@@ -1,55 +1,95 @@
 
 body, html{
 
-     height: 100%;
-    background-color: #aliceblue;
+    height: 100%;
+    background-color: #fff;
     font-family: 'Oxygen', sans-serif;
     background-size: cover;
 
 }
 
-.main{
-    margin:50px 15px;
-}
 
-h1.title {
-    font-size: 50px;
-    font-family: 'Passion One', cursive;
-    font-weight: 400;
-}
+
 
 hr{
     width: 10%;
     color: #fff;
 }
 
-.form-group{
-    margin-bottom: 50px;
-}
 
 label{
     margin-bottom: 15px;
 }
 
 
-span.input-group-addon i {
-    color: #D82668;
-    font-size: 17px;
+
+
+
+
+.menu{
+  height: 70px;
+  width: 100px;
+  margin: 0;
+  font-size: 18px;
+background-color: #333;
+color: white;
+text-align: center;
+}
+h5{
+  font-family: Arial;
+  text-align: right;
+  color: white;
+
+}
+.logout{
+  background-color: #333;
+  color: white;
+  padding: 25px;
+}
+.bar {
+  background-color: #333;
+}
+a{
+  margin-left: 10px;
+  margin-bottom: 30px;
+  font-family: Arial;
 }
 
-.login-button{
-    margin-top: 5px;
+span{
+  color: #555;
 }
 
-.login-register{
-    font-size: 11px;
-    text-align: center;
+h3{
+  margin-top: 300px;
+  margin-left: 50px;
 }
-th{
-  color: #black;
+h4{
+  margin-top: 50px;
+  text-align: left;
+}
+.menuAll{
+  margin-top: 2px;
+  margin-left: -18px;
+}
+li{
+  list-style-type: none;
+}
+input{
+  width: 300px;
+  height: 35px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+button{
+  border-radius: 10px;
+}
+.main-center{
+  margin-top: 150px;
 }
 
-.menuitem{
-  height: 100px;
-
+h1{
+  font-family: cursive;
+}
+.components{
+  margin-left: -100px;
 }
