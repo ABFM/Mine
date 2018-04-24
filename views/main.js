@@ -141,6 +141,7 @@ $scope.logout= function(){
 }
 
 $scope.init = function (){
+  $scope.getUser()
   var route=$window.location.href.split("!")[1];
   switch (route) {
     case "/Videos":
@@ -161,6 +162,21 @@ $scope.init = function (){
 
 }
 }
+
+
+$scope.getUser = function(){
+  var req = {
+ method: 'GET',
+ url: '/getUser'
+}
+
+$http(req).then(function(data){
+  $scope.user = data['data']
+}, function(err){
+  console.log(err);
+})
+}
+
 
 $scope.delete = function(name){
   var req = {

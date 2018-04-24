@@ -9,52 +9,48 @@
   </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body ng-app= 'app2'>
-<!--  <div ng-view></div>
-  <a href="#!login">login</a>
-<a href="#!signup">signup</a> -->
-
 <div  ng-controller = 'myCtrl2' ng-init='init()'>
+
   <button ng-click='logout()'>Logout</button>
-<div class="container-fluid">
-  <img src="logo.png" />
+<div class="container-fluid" >
+  <img src="logo.png" style="width: 75px;/>
   Welcome To mine !
   mine is yours!
 </div>
 
 <div class="container-fluid">
-<h3> search for urls </h3>
-  <div class="input-group">
-
-    <input type="text" class="form-control" placeholder="Search .." ng-model="searching">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
-      </span>
-  </div>
   <div class="row content">
+
     <div class="col-sm-2 sidenav">
 
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#!Home" class="menu">Home</a></li>
-        <li><a href="#!Videos" ng-click='getVideos()' class="menu">Videos</a></li>
-        <li><a href="#!Articles" ng-click='getArticles()' class="menu">Articles</a></li>
-        <li><a href="#!Photos" ng-click='getPhotos()' class="menu">Photos</a></li>
-        <li><a href="#!Music" ng-click='getMusic()' class="menu">Music</a></li>
-        <li><a href="#!Others" ng-click='getOthers()' class="menu">Other</a></li>
+        <li class="menuitem"><a href="#!Home" class="menu">Home</a></li>
+        <li class="menuitem"><a href="#!Videos" ng-click='getVideos()' class="menu">Videos</a></li>
+        <li class="menuitem"><a href="#!Articles" ng-click='getArticles()' class="menu">Articles</a></li>
+        <li class="menuitem"><a href="#!Photos" ng-click='getPhotos()' class="menu">Photos</a></li>
+        <li class="menuitem"><a href="#!Music" ng-click='getMusic()' class="menu">Music</a></li>
+        <li class="menuitem"><a href="#!Others" ng-click='getOthers()' class="menu">Other</a></li>
       </ul><br>
 
     </div>
+    <div class="profile col-sm-10" >
+      <div class="name col-sm-5">
+        <img src="profile.png" alt="" width="75px" class="col-sm-3">
+        <h5 class="col-sm-9">{{user.userName}}</h5>
+        <h5 class="col-sm-9">{{user.email}}</h5>
 
+
+      </div>
+    </div>
       <div class="col-sm-9" ng-view></div>
 
 
       </div>
 </div>
  </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 <script src="main.js"></script>
