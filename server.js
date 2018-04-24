@@ -16,7 +16,9 @@ app.use(express.static(path.join(__dirname, 'views')))
 app.use(session({
   secret: "shhh, it is a secret",
 
-  resave: false,
+  resave: true,
+  cookie: { maxAge : 300000000000000000000 },
+
   saveUninitialized: true
 }))
 app.set('view engine', 'html');
@@ -26,7 +28,6 @@ app.engine('html', require('ejs').renderFile);
 
 
 // the routes handlers----------------
-
 
 app.get('/', util.checkUser, function(req, res) {
    res.render('index');
@@ -106,7 +107,7 @@ app.post('/signup', function(req, res){
             else {
               console.log(data);
               util.createSession(req, res, data.userName);
-              
+
             }
           })
         })
@@ -176,6 +177,20 @@ app.post('/searchUser', function(req, res) {
 })
 
 
+
+
+app.get('/getUser', function (req, res) {
+ db.User.findOne({userName:req.session.user}, function(err, data) {
+   if (err) {
+     console.log(err);
+   }
+   else {
+
+     res.send(data)
+   }
+ })
+})
+
 app.post('/import', function(req, res) {
   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
     if(err) {
@@ -211,29 +226,7 @@ app.post('/like',function(req,res){
 
 })
 
-// app.post('/import', function(req, res) {
-//   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
-//     if(err) {
-//       console.log(err);
-//     } else {
-//       const imported = new db.Url({
-//         url: data.url,
-//         urlName: data.name,
-//         category: data.category,
-//         userName: req.session.user,
-//         likes: data.likes
-//       })
-//       imported.save(function(err, data){
-//         if(err) {
-//           console.log(err);
-//         } else {
-//           console.log('saved ',data);
-//         }
-//       })
-//     }
-//   });
-//
-// })
+
 
 
 const port = process.env.port || 3000;

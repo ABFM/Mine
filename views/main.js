@@ -145,9 +145,11 @@ $scope.logout= function(){ //redirect the user to the login page.
 }
 
 
-$scope.init = function (){ //this is the constuctor which is called when loading the page.
-  var route=$window.location.href.split("!")[1]; 
-  switch (route) { //fetchs the urls from the datadase depending on the route
+$scope.init = function (){
+  $scope.getUser()
+  var route=$window.location.href.split("!")[1];
+  switch (route) {
+
     case "/Videos":
     $scope.getVideos()
     break;
@@ -167,7 +169,25 @@ $scope.init = function (){ //this is the constuctor which is called when loading
   }
 }
 
+
+
+$scope.getUser = function(){
+  var req = {
+ method: 'GET',
+ url: '/getUser'
+}
+
+$http(req).then(function(data){
+  $scope.user = data['data']
+}, function(err){
+  console.log(err);
+})
+}
+
+
+
 $scope.delete = function(name){ //deletes a specific url.
+
   var req = {
    method: 'POST',
    url: '/delete',

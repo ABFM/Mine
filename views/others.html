@@ -1,9 +1,18 @@
 <div class="container">
-
+	<h3 style="text-align: center;"> search for urls </h3>
+	  <div class="input-group" style="margin: 10px 300px;">
+	    <input type="text" class="form-control" placeholder="Search .." ng-model="searching">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">
+	          <span class="glyphicon glyphicon-search"></span>
+	        </button>
+	      </span>
+	  </div>
 	<ul ng-repeat = 'url in urls| filter: searching'>
 		<li style="background-color: aliceblue; padding: 10px; font-size:20px; border-radius: 15px;">
 
 			<a href={{url.url}}>{{url.urlName}}</a>
+			<br>
 				<button class="btn btn-danger" ng-click= delete(url.urlName)>delete</button>
 		</li>
 
