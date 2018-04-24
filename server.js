@@ -55,8 +55,7 @@ app.post('/login',function(req, res){
             }
             else {
               console.log('err');
-              res.status(404)
-              res.redirect('/')
+              res.sendStatus(404)
             }
           })
         }
