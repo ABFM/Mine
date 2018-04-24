@@ -1,136 +1,140 @@
-var app =angular.module('app2',["ngRoute"])
+
+var app =angular.module('app2',["ngRoute"]) //importing ngRoute is important for the config./routeProvider.
 app.config(["$routeProvider", function($routeProvider) {
-    $routeProvider
+    $routeProvider // render one of these html pages inside the div of ng-view depending on route provided
     .when("/Home", {
-        templateUrl : 'home.html'
-      })
+      templateUrl : 'home.html'
+    })
     .when("/Videos", {
-        templateUrl : 'videos.html'
-      })
+      templateUrl : 'categories.html'
+    })
     .when("/Articles", {
-        templateUrl : "Articles.html"
+      templateUrl : "categories.html"
     })
-     .when("/Photos", {
-        templateUrl : "photos.html"
+    .when("/Photos", {
+      templateUrl : "categories.html"
     }) .when("/Music", {
-        templateUrl : "music.html"
+      templateUrl : "categories.html"
     }) .when("/Others", {
-        templateUrl : "others.html"
+      templateUrl : "categories.html"
     })
-}])
+  }])
 app.controller('myCtrl2', ['$scope','$http','$window',function($scope,$http,$window){
 
-$scope.getVideos = function(){
-    var req = {
- method: 'POST',
- url: '/fetch',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { category:"videos" }
-}
+$scope.getVideos = function(){ //fetch the videos urls from the database
+  var req = {
+   method: 'POST',
+   url: '/fetch',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   data: { category:"videos" }
+ }
 
-$http(req).then(function(data){
+ $http(req).then(function(data){
+
   $scope.urls = data['data']
 }, function(err){console.log(err);
 
 })
 }
 
- $scope.getArticles = function(){
- var req = {
- method: 'POST',
- url: '/fetch',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { category:"articles" }
-}
 
-$http(req).then(function(data){
-  console.log(data['data'])
-  $scope.urls = data['data']
-}, function(err){console.log(err);
+ $scope.getArticles = function(){ //nafs al eshi
+   var req = {
+     method: 'POST',
+     url: '/fetch',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     data: { category:"articles" }
+   }
+
+   $http(req).then(function(data){
+    console.log(data['data'])
+    $scope.urls = data['data']
+  }, function(err){console.log(err);
+
+  })
+ }
+ $scope.getOthers = function(){ //nafs al eshi
+   var req = {
+     method: 'POST',
+     url: '/fetch',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     data: { category:"others" }
+   }
+
+   $http(req).then(function(data){
+    console.log(data['data'])
+    $scope.urls = data['data']
+  }, function(err){console.log(err);
+
+  })
+ }
+
+ $scope.getPhotos = function(){ //nafs al eshi
+   var req = {
+     method: 'POST',
+     url: '/fetch',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     data: { category:"photos" }
+   }
+
+   $http(req).then(function(data){
+    console.log(data['data'])
+    $scope.urls = data['data']
+  }, function(err){console.log(err);
+
+  })
+ }
+ $scope.getMusic = function(){ //nafs al eshi
+   var req = {
+     method: 'POST',
+     url: '/fetch',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     data: { category:"music" }
+   }
+
+   $http(req).then(function(data){
+    console.log(data['data'])
+    $scope.urls = data['data']
+  }, function(err){console.log(err);
+
+  })
+ }
+
+$scope.addUrl = function (name,url, category){ // add url to the database
+  console.log(category)
+  var req = {
+   method: 'POST',
+   url: '/add',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   data: { name: name, url: url, category:category }
+ }
+
+ $http(req).then(function(data){
+$window.location.reload() //to refresh the page in order to show the newly added url
+
+}, function(err){
+  console.log(err);
 
 })
-}
- $scope.getOthers = function(){
- var req = {
- method: 'POST',
- url: '/fetch',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { category:"others" }
-}
-
-$http(req).then(function(data){
-  console.log(data['data'])
-  $scope.urls = data['data']
-}, function(err){console.log(err);
-
-})
-}
-
- $scope.getPhotos = function(){
- var req = {
- method: 'POST',
- url: '/fetch',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { category:"photos" }
-}
-
-$http(req).then(function(data){
-  console.log(data['data'])
-  $scope.urls = data['data']
-}, function(err){console.log(err);
-
-})
-}
- $scope.getMusic = function(){
- var req = {
- method: 'POST',
- url: '/fetch',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { category:"music" }
-}
-
-$http(req).then(function(data){
-  console.log(data['data'])
-  $scope.urls = data['data']
-}, function(err){console.log(err);
-
-})
-}
-
-$scope.addUrl = function (name,url, category){
-console.log(category)
- var req = {
- method: 'POST',
- url: '/add',
- headers: {
-   'Content-Type': 'application/json'
- },
- data: { name: name, url: url, category:category }
-}
-
-$http(req).then(function(data){
-   console.log("hi hi hi hih i hi",data)
-$window.location.reload()
-
-}, function(err){console.log(err);
- //this.loginPassword = null
-
-
-})
 
 }
 
-$scope.logout= function(){
+
+
+$scope.logout= function(){ //redirect the user to the login page.
+
   var req= {
     method: 'GET',
     url: '/logout'
@@ -140,28 +144,31 @@ $scope.logout= function(){
   },function(){})
 }
 
+
 $scope.init = function (){
   $scope.getUser()
   var route=$window.location.href.split("!")[1];
   switch (route) {
-    case "/Videos":
-      $scope.getVideos()
-      break;
-    case "/Articles":
-      $scope.getArticles()
-      break;
-    case "/Photos":
-      $scope.getPhotos()
-      break;
-    case "/Music":
-      $scope.getMusic()
-      break;
-    case "/Others":
-      $scope.getOthers()
-      break;
 
+    case "/Videos":
+    $scope.getVideos()
+    break;
+    case "/Articles":
+    $scope.getArticles()
+    break;
+    case "/Photos":
+    $scope.getPhotos()
+    break;
+    case "/Music":
+    $scope.getMusic()
+    break;
+    case "/Others":
+    $scope.getOthers()
+    break;
+
+  }
 }
-}
+
 
 
 $scope.getUser = function(){
@@ -178,53 +185,60 @@ $http(req).then(function(data){
 }
 
 
-$scope.delete = function(name){
-  var req = {
- method: 'POST',
- url: '/delete',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { name:name }
-}
 
-$http(req).then(function(data){
-  console.log('alo alo lao')
- $window.location.reload()
-}, function(err){
+$scope.delete = function(name){ //deletes a specific url.
+
+  var req = {
+   method: 'POST',
+   url: '/delete',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   data: { name:name }
+ }
+
+ $http(req).then(function(data){
+   $window.location.reload()
+ }, function(err){
+
   console.log(err);
 })
 }
 $scope.like = function(username,name){
   var req = {
- method: 'POST',
- url: '/like',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { username:username,name:name }
-}
 
-$http(req).then(function(data){
- console.log("success like")
+   method: 'POST',
+   url: '/like',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   data: { username:username,name:name }
+ }
 
- // $window.location.reload()
-}, function(err){
+ $http(req).then(function(data){
+  // $window.location.reload()
+
+  $scope.search(username)
+
+ }, function(err){
   console.log(err);
 })
+  
+  
 }
 $scope.unlike = function(username,name){
   var req = {
- method: 'POST',
- url: '/unlike',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { username:username,name:name }
-}
+   method: 'POST',
+   url: '/unlike',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   data: { username:username,name:name }
+ }
 
-$http(req).then(function(data){
- console.log("success inlike")
+ $http(req).then(function(data){
+   console.log("success inlike")
+ $scope.search(username)
 
  // $window.location.reload()
 }, function(err){
@@ -233,38 +247,40 @@ $http(req).then(function(data){
 }
 $scope.import = function(username,name){
   var req = {
- method: 'POST',
- url: '/import',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { username:username,name:name }
-}
 
-$http(req).then(function(data){
- console.log("success import")
-}, function(err){
-  console.log(err);
-})
-}
- $scope.search = function (username) {
-
-    var req = {
- method: 'POST',
- url: '/searchUser',
-  headers: {
-   'Content-Type': 'application/json'
- },
- data: { username:username }
-}
-
-$http(req).then(function(data){
- $scope.usernames = data['data']
-}, function(err){
-  console.log(err);
-})
-
+   method: 'POST',
+   url: '/import',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   data: { username:username,name:name }
  }
+
+ $http(req).then(function(data){
+   console.log("success import")
+ }, function(err){
+  console.log(err);
+})
+}
+$scope.search = function (username) {
+$scope.searchUser = username;
+  var req = {
+   method: 'POST',
+   url: '/searchUser',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   data: { username:username }
+ }
+
+ $http(req).then(function(data){
+   $scope.usernames = data['data']
+ }, function(err){
+  console.log(err);
+})
+
+}
+
 
 
 }])

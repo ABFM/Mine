@@ -15,10 +15,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'views')))
 app.use(session({
   secret: "shhh, it is a secret",
+
   resave: true,
   cookie: { maxAge : 300000000000000000000 },
+
   saveUninitialized: true
 }))
+app.set('view engine', 'html');
+app.set('views',path.join(__dirname,'views'))
+app.engine('html', require('ejs').renderFile);
+
+
 
 // the routes handlers----------------
 
@@ -162,10 +169,13 @@ app.post('/searchUser', function(req, res) {
     if(err){
       console.log(err);
     } else {
+
       res.json(data);
+
     }
   })
 })
+
 
 
 
@@ -180,29 +190,44 @@ app.get('/getUser', function (req, res) {
    }
  })
 })
-// app.post('/import', function(req, res) {
-//   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
-//     if(err) {
-//       console.log(err);
-//     } else {
-//       const imported = new db.Url({
-//         url: data.url,
-//         urlName: data.name,
-//         category: data.category,
-//         userName: req.session.user,
-//         likes: data.likes
-//       })
-//       imported.save(function(err, data){
-//         if(err) {
-//           console.log(err);
-//         } else {
-//           console.log('saved ',data);
-//         }
-//       })
-//     }
-//   });
-//
-// })
+
+app.post('/import', function(req, res) {
+  db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
+    if(err) {
+      console.log(err);
+    } else {
+      const imported = new db.Url({
+        url: data.url,
+        urlName: data.urlName,
+        category: data.category,
+        userName: req.session.user,
+        likes: 0
+      })
+      imported.save(function(err, data){
+        if(err) {
+          console.log(err);
+        } else {
+          console.log('saved ',data);
+        }
+      })
+    }
+  });
+
+})
+
+app.post('/like',function(req,res){
+  db.Url.update({userName:req.body.username, urlName:req.body.name}, { $inc: {likes: 1 } }, function(err,done){
+      if(err){
+        console.log(err)
+      }
+      console.log('success',done)
+      res.sendStatus(201)
+  });
+
+})
+
+
+
 
 const port = process.env.port || 3000;
 app.listen(port, () => console.log('Example app listening on port 3000!'))

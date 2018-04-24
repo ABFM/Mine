@@ -1,9 +1,11 @@
 
 body, html{
+
      height: 100%;
     background-color: #aliceblue;
     font-family: 'Oxygen', sans-serif;
     background-size: cover;
+
 }
 
 .main{
@@ -28,6 +30,7 @@ hr{
 label{
     margin-bottom: 15px;
 }
+
 
 span.input-group-addon i {
     color: #D82668;
