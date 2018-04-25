@@ -9,10 +9,11 @@ const bcrypt = require('bcrypt');
 const app = express()
 
 // using of modules-------------------
-
+app.set('views', __dirname + '/views');
+app.set('view engine', 'html');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(__dirname + '/views')))
+app.use(express.static(__dirname + '/views'));
 app.use(session({
   secret: "shhh, it is a secret",
 
@@ -21,14 +22,13 @@ app.use(session({
 
   saveUninitialized: true
 }))
-app.set('view engine', 'html');
 
 
 
 // the routes handlers----------------
 
 app.get('/', util.checkUser, function(req, res) {
-   res.render('hi');
+   res.sendFile(path.join(__dirname + '/views/index.html'))
 
 });
 
