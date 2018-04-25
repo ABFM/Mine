@@ -53,7 +53,7 @@
 		<ul ng-repeat = "username in usernames | filter: username1">
 
 			<li>
-				<div style="background-color: aliceblue; padding: 20px;"><h4>user name : </h4>{{username.userName}} <br> <h4>category :</h4> {{username.category}} <br> <h4>link:</h4> <a href = '{{username.url}}' target="_blank"> {{username.urlName}} </a><br> Likes: {{username.likes}}</div> <div><button class="btn btn-primary"  ng-hide=username.like ng-click="var=true ;like(username.userName,username.urlName)"><i class="fa fa-thumbs-up">Like</i> </button>
+				<div style="background-color: aliceblue; padding: 20px;"><h4>user name : </h4>{{username.userName}} <br> <h4>category :</h4> {{username.category}} <br> <h4>link:</h4> <a href = '{{username.url}}' target="_blank"> {{username.urlName}} </a><br> Likes: {{username.likes}}</div> <div><button class="btn btn-primary"  ng-hide="username.like" ng-click="like(username.userName,username.urlName)"><i class="fa fa-thumbs-up">Like</i> </button>
 					<button class="btn btn-primary"  ng-show=username.like ng-click="var=false ;unlike(username.userName,username.urlName)"><i class="fa fa-thumbs-up">UnLike</i> </button>
 					<button type="button" class="btn btn-success" ng-click="import(username.userName,username.urlName)">Add to Mine</button>
 				</div>
