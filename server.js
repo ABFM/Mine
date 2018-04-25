@@ -135,7 +135,8 @@ app.post('/add', function(req, res){
   urlName: req.body.name,
   category: req.body.category,
   userName: req.session.user,
-  likes: 0
+  likes: 0,
+  likesUsers: []
   });
   console.log(req.session);
   url.save(function(err,data){
@@ -160,6 +161,7 @@ app.post('/delete', function(req,res) {
     }
   });
 })
+
 
 app.post('/searchUser', function(req, res) {
   const username = req.body.username;
@@ -214,13 +216,32 @@ app.post('/import', function(req, res) {
 })
 
 app.post('/like',function(req,res){
-  db.Url.update({userName:req.body.username, urlName:req.body.name}, { $inc: {likes: 1 } }, function(err,done){
+ 
+      db.Url.update({userName:req.body.username, urlName:req.body.name}, { $push: {likesUsers: req.session.user } , $inc :{likes: 1} },function(err,done){
       if(err){
         console.log(err)
       }
       console.log('success',done)
       res.sendStatus(201)
   });
+    
+  // })
+  
+
+})
+
+app.post('/unlike',function(req,res){
+  
+      db.Url.update({userName:req.body.username, urlName:req.body.name}, { $pull: {likesUsers: req.session.user } , $inc :{likes: -1} },function(err,done){
+      if(err){
+        console.log(err)
+      } else{ 
+          console.log('success',done)
+          res.sendStatus(201)
+       }
+      
+  });
+
 
 })
 
@@ -228,4 +249,4 @@ app.post('/like',function(req,res){
 
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('Example app listening on port 3000!'))
+app.listen(port, () => console.log('Example app listening on port ', port))
