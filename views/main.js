@@ -1,7 +1,7 @@
 
 var app =angular.module('app2',["ngRoute"]) //importing ngRoute is important for the config./routeProvider.
 app.config(["$routeProvider", function($routeProvider) {
-    $routeProvider // render one of these html pages inside the div of ng-view depending on route provided
+    $routeProvider // render one of these html pages inside the div of ng-view depending on route provided/fgpkodfp[]
     .when("/", {
       templateUrl : 'home.html'
     })
@@ -279,9 +279,9 @@ $scope.searchUser = username;
 
  $http(req).then(function(data){
   for (var i = 0; i < data['data'].length; i++) {
-   
+
     data['data'][i]['like'] =(data['data'][i].likesUsers.indexOf($scope.user.userName) !== -1)
-       
+
   }
    $scope.usernames = data['data']
  }, function(err){
