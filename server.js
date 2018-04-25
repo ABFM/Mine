@@ -28,10 +28,7 @@ app.use(session({
 
 // the routes handlers----------------
 
-app.get('/', util.checkUser, function(req, res) {
-   res.render('index')
 
-});
 
 
 app.post('/login',function(req, res){
@@ -228,4 +225,4 @@ app.post('/like',function(req,res){
 
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('Example app listening on port 3000!'))
+app.listen(port, () => console.log('Example app listening on port ', port))
