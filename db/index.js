@@ -19,7 +19,8 @@ const urlSchema = mongoose.Schema({
   urlName: String,
   category: String,
   userName: String,
-  likes: Number
+  likes: Number,
+  likesUsers: [String]
 })
 const Url = mongoose.model('Url', urlSchema)
 const User = mongoose.model('User', userSchema);

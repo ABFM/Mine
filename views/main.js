@@ -224,6 +224,7 @@ $scope.like = function(username,name){
   $scope.search(username)
 
  }, function(err){
+  // $scope.search(username)
   console.log(err);
 })
 
@@ -240,7 +241,7 @@ $scope.unlike = function(username,name){
  }
 
  $http(req).then(function(data){
-   console.log("success inlike")
+   console.log("success unlike")
  $scope.search(username)
 
  // $window.location.reload()
@@ -277,6 +278,11 @@ $scope.searchUser = username;
  }
 
  $http(req).then(function(data){
+  for (var i = 0; i < data['data'].length; i++) {
+   
+    data['data'][i]['like'] =(data['data'][i].likesUsers.indexOf($scope.user.userName) !== -1)
+       
+  }
    $scope.usernames = data['data']
  }, function(err){
   console.log(err);
