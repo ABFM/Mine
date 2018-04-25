@@ -1,5 +1,4 @@
-// requiring modules for mongoose
-// you are adults to deal with this
+
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 //mongoose.connect('mongodb://localhost/Mine');
