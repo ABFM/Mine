@@ -1,37 +1,41 @@
-<table class= "table" style="padding: 20px; margin: 30px;">
+<div class="components">
+	<h4>You can save your favorite URLS here!</h4>
+	<h4>just paste your url in the input and just give it a name !</h4>
+	<h4></h4>
+					<input type="text" name="" ng-model='name' placeholder="Enter Url Name">
 
-		<tr>
-			<th>
-				 Name
-				<input type="text" name="" ng-model='name'>
+					<br>
+					<br>
 
-			</th>
-			<th>
-				 Url
-				<input type="text" name="" ng-model = 'url'>
-			</th>
-			<th>
-				Select category
-			<select ng-model = "val" >
-  				<option value="videos">videos</option>
-  				<option value="articles">articles</option>
-  				<option value="photos">photos</option>
-  				<option value="music">music</option>
-  				<option value="others">others</option>
+					<input type="text" name="" ng-model = 'url' placeholder="Enter Url">
+					<br>
+					<br>
+
+	<select ng-model = "val">
+			<option value="videos" selected>videos</option>
+			<option value="articles">articles</option>
+			<option value="photos">photos</option>
+			<option value="music">music</option>
+			<option value="others">others</option>
 
 
-			</select>
-			<th>
-				<button ng-click='addUrl(name,url,val)'>
-					Add to your Urls
-				</button>
-			</th>
+	</select> <span>Select Url  Category</span>
 
-		</tr>
-	</table>
-	<h3>search for other users</h3>
 
-	<div class="input-group" style="padding: 20px; margin: 30px;">
+				<br>
+				<br>
+					<button ng-click='addUrl(name,url,val)'>
+						Add To My Urls
+					</button>
+</div>
+
+
+
+
+
+	<h3>Search For Other Users</h3>
+
+	<div class="input-group" style="padding: 20px;">
 
 		<input type="text" class="form-control" placeholder="Search .." ng-model = 'username'>
 
@@ -45,13 +49,15 @@
 	</div>
 	<br>
 	<div>
-		<ul ng-repeat = "username in usernames | filter: username">
+			<input type="text" ng-show = "!!usernames" class="form-control"   placeholder="Search by urlName	" ng-model = 'username1' style="width: 500px">
+		<ul ng-repeat = "username in usernames | filter: username1">
+
 			<li>
 				<div style="background-color: aliceblue; padding: 20px;"><h4>user name : </h4>{{username.userName}} <br> <h4>category :</h4> {{username.category}} <br> <h4>link:</h4> <a href = '{{username.url}}' target="_blank"> {{username.urlName}} </a><br> Likes: {{username.likes}}</div> <div><button class="btn btn-primary"  ng-hide=var ng-click="var=true ;like(username.userName,username.urlName)"><i class="fa fa-thumbs-up">Like</i> </button>
 					<button class="btn btn-primary"  ng-show=var ng-click="var=false ;unlike(username.userName,username.urlName)"><i class="fa fa-thumbs-up">UnLike</i> </button>
 					<button type="button" class="btn btn-success" ng-click="import(username.userName,username.urlName)">Add to Mine</button>
 				</div>
 			</ul>
-			
+
 
 		</div>

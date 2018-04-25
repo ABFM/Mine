@@ -1,8 +1,8 @@
-// requiring modules for mongoose
-// you are adults to deal with this 
+
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-mongoose.connect('mongodb://localhost/Mine');
+//mongoose.connect('mongodb://localhost/Mine');
+mongoose.connect('mongodb://zoaby:123456@ds255319.mlab.com:55319/mine');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
