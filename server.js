@@ -153,7 +153,7 @@ app.post('/add', function(req, res){
 
 app.post('/delete', function(req,res) {
   const name = req.body.name;
-  db.Url.remove({urlName: name}, function(err,data){
+  db.Url.remove({urlName: name, url : req.body.url}, function(err,data){
     if(err){
       console.log(err);
     } else {

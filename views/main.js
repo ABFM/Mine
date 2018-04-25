@@ -189,7 +189,7 @@ $http(req).then(function(data){
 
 
 
-$scope.delete = function(name){ //deletes a specific url.
+$scope.delete = function(name, url){ //deletes a specific url.
 
   var req = {
    method: 'POST',
@@ -197,7 +197,7 @@ $scope.delete = function(name){ //deletes a specific url.
    headers: {
      'Content-Type': 'application/json'
    },
-   data: { name:name }
+   data: { name:name , url: url}
  }
 
  $http(req).then(function(data){
