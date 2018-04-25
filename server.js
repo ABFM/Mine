@@ -132,7 +132,8 @@ app.post('/add', function(req, res){
   urlName: req.body.name,
   category: req.body.category,
   userName: req.session.user,
-  likes: 0
+  likes: 0,
+  likesUsers: []
   });
   console.log(req.session);
   url.save(function(err,data){

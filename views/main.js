@@ -277,6 +277,12 @@ $scope.searchUser = username;
  }
 
  $http(req).then(function(data){
+   console.log(data)
+   for (var i = 0; i < data['data'].length; i++) {
+console.log($scope.user.userName)
+    data['data'][i]['like'] =(data['data'][i].likesUsers.indexOf($scope.user.userName) !== -1)
+console.log(  data['data'][i]['like'])
+  }
    $scope.usernames = data['data']
  }, function(err){
   console.log(err);
