@@ -28,10 +28,7 @@ app.use(session({
 
 // the routes handlers----------------
 
-// app.get('/', util.checkUser, function(req, res) {
-//    res.render('index')
-//
-// });
+
 
 
 app.post('/login',function(req, res){
@@ -231,22 +228,22 @@ app.post('/like',function(req,res){
       console.log('success',done)
       res.sendStatus(201)
   });
-    
+
   // })
-  
+
 
 })
 
 app.post('/unlike',function(req,res){
-  
+
       db.Url.update({userName:req.body.username, urlName:req.body.name}, { $pull: {likesUsers: req.session.user } , $inc :{likes: -1} },function(err,done){
       if(err){
         console.log(err)
-      } else{ 
+      } else{
           console.log('success',done)
           res.sendStatus(201)
        }
-      
+
   });
 
 
