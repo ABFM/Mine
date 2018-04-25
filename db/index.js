@@ -1,9 +1,9 @@
 
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-var databaseConnect = 'mongodb://localhost/Mine' || 'mongodb://zoaby:123456@ds255319.mlab.com:55319/mine'
+//var databaseConnect = 'mongodb://localhost/Mine' || 'mongodb://zoaby:123456@ds255319.mlab.com:55319/mine'
 //mongoose.connect('mongodb://localhost/Mine');
-mongoose.connect(databaseConnect);
+mongoose.connect('mongodb://zoaby:123456@ds255319.mlab.com:55319/mine');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
