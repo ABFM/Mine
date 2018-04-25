@@ -1,4 +1,3 @@
-
 var app =angular.module('app2',["ngRoute"]) //importing ngRoute is important for the config./routeProvider.
 app.config(["$routeProvider", function($routeProvider) {
     $routeProvider // render one of these html pages inside the div of ng-view depending on route provided
@@ -189,15 +188,15 @@ $http(req).then(function(data){
 
 
 
-$scope.delete = function(name){ //deletes a specific url.
-
+$scope.delete = function(name, url){ //deletes a specific url.
+console.log(url)
   var req = {
    method: 'POST',
    url: '/delete',
    headers: {
      'Content-Type': 'application/json'
    },
-   data: { name:name }
+   data: { name:name , url: url}
  }
 
  $http(req).then(function(data){
@@ -224,6 +223,7 @@ $scope.like = function(username,name){
   $scope.search(username)
 
  }, function(err){
+  // $scope.search(username)
   console.log(err);
 })
 
@@ -240,7 +240,7 @@ $scope.unlike = function(username,name){
  }
 
  $http(req).then(function(data){
-   console.log("success inlike")
+   console.log("success unlike")
  $scope.search(username)
 
  // $window.location.reload()
@@ -277,11 +277,10 @@ $scope.searchUser = username;
  }
 
  $http(req).then(function(data){
-   console.log(data)
-   for (var i = 0; i < data['data'].length; i++) {
-console.log($scope.user.userName)
+  for (var i = 0; i < data['data'].length; i++) {
+
     data['data'][i]['like'] =(data['data'][i].likesUsers.indexOf($scope.user.userName) !== -1)
-console.log(  data['data'][i]['like'])
+
   }
    $scope.usernames = data['data']
  }, function(err){
