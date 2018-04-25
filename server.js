@@ -9,10 +9,12 @@ const bcrypt = require('bcrypt');
 const app = express()
 
 // using of modules-------------------
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'views')))
+app.use(express.static(path.join(__dirname , 'views')));
 app.use(session({
   secret: "shhh, it is a secret",
 
@@ -21,16 +23,13 @@ app.use(session({
 
   saveUninitialized: true
 }))
-app.set('view engine', 'html');
-app.set('views',path.join(__dirname,'views'))
-app.engine('html', require('ejs').renderFile);
 
 
 
 // the routes handlers----------------
 
 app.get('/', util.checkUser, function(req, res) {
-   res.render('index');
+   res.render('index')
 
 });
 
@@ -228,5 +227,5 @@ app.post('/like',function(req,res){
 
 
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('Example app listening on port 3000!'))
