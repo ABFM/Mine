@@ -113,7 +113,7 @@ $scope.getVideos = function(){ //fetch the videos urls from the database
  }
 
 $scope.addUrl = function (name,url, category){ // add url to the database
-  console.log(category)
+
   var req = {
    method: 'POST',
    url: '/add',
@@ -124,11 +124,16 @@ $scope.addUrl = function (name,url, category){ // add url to the database
  }
 
  $http(req).then(function(data){
-$window.location.reload() //to refresh the page in order to show the newly added url
+$scope.urlMessage = true;
+   setTimeout(function(){
+     $window.location.reload()
+   },1000)
+//$window.location.reload() //to refresh the page in order to show the newly added url
 
-}, function(err){
-  console.log(err);
+}, function(response){
 
+if(response.status ===700)
+$scope.logout()
 })
 
 }
@@ -142,12 +147,14 @@ $scope.logout= function(){ //redirect the user to the login page.
     url: '/logout'
   }
   $http(req).then(function(){
+    console.log('hello logout22222');
     $window.location.href = '/';
   },function(){})
 }
 
 
 $scope.init = function (){
+  $scope.urlMessage = false;
   $scope.getUser()
   var route=$window.location.href.split("!")[1];
   switch (route) {
@@ -188,15 +195,15 @@ $http(req).then(function(data){
 
 
 
-$scope.delete = function(name, url){ //deletes a specific url.
-console.log(url)
+$scope.delete = function(id){ //deletes a specific url.
+console.log(id)
   var req = {
-   method: 'POST',
+   method: 'DELETE',
    url: '/delete',
    headers: {
      'Content-Type': 'application/json'
    },
-   data: { name:name , url: url}
+   data: { id:id}
  }
 
  $http(req).then(function(data){
@@ -283,8 +290,10 @@ $scope.searchUser = username;
 
   }
    $scope.usernames = data['data']
- }, function(err){
-  console.log(err);
+ }, function(response){
+  //console.log(err);
+  if(response.status ===700)
+  $scope.logout()
 })
 
 }

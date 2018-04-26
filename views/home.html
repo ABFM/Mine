@@ -2,7 +2,7 @@
 	<h4>You can save your favorite URLS here!</h4>
 	<h4>just paste your url in the input and just give it a name !</h4>
 	<h4></h4>
-					<input type="text" name="" ng-model='name' placeholder="Enter Url Name">
+					<input type="text" name=""  ng-model='name' placeholder="Enter Url Name">
 
 					<br>
 					<br>
@@ -26,7 +26,7 @@
 				<br>
 					<button ng-click='addUrl(name,url,val)'>
 						Add To My Urls
-					</button>
+					</button> <p ng-show="urlMessage">your url added successfully</p>
 </div>
 
 

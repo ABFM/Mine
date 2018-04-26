@@ -28,10 +28,10 @@ app.use(session({
 
 // the routes handlers----------------
 
-app.get('/', util.checkUser, function(req, res) {
-   res.render('index')
-
-});
+// app.get('/', util.checkUser, function(req, res) {
+//    res.render('index')
+//
+// });
 
 
 app.post('/login',function(req, res){
@@ -130,6 +130,7 @@ app.post('/fetch', function (req, res){
 });
 
 app.post('/add', function(req, res){
+  if(req.session.user){
   let url = new db.Url({
   url: req.body.url,
   urlName: req.body.name,
@@ -148,13 +149,13 @@ app.post('/add', function(req, res){
       res.sendStatus(201)
     }
   })
-
+} else { res.sendStatus(700)}
 });
 
-app.post('/delete', function(req,res) {
-  console.log(req.body.url);
+app.delete('/delete', function(req,res) {
+  console.log(req.body.id);
   const name = req.body.name;
-  db.Url.remove({urlName: name, url : req.body.url}, function(err,data){
+  db.Url.remove({_id : req.body.id}, function(err,data){
     if(err){
       console.log(err);
     } else {
@@ -165,6 +166,7 @@ app.post('/delete', function(req,res) {
 
 
 app.post('/searchUser', function(req, res) {
+  if(req.session.user){
   const username = req.body.username;
   db.Url.find({userName:username}, function(err, data) {
     if(err){
@@ -175,6 +177,9 @@ app.post('/searchUser', function(req, res) {
 
     }
   })
+} else {
+  res.sendStatus(700)
+}
 })
 
 
