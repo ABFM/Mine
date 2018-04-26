@@ -1,6 +1,6 @@
 var app =angular.module('app2',["ngRoute"]) //importing ngRoute is important for the config./routeProvider.
 app.config(["$routeProvider", function($routeProvider) {
-    $routeProvider // render one of these html pages inside the div of ng-view depending on route provided
+    $routeProvider // render one of these html pages inside the div of ng-view depending on route provided/fgpkodfp[]
     .when("/", {
       templateUrl : 'home.html'
     })
@@ -192,18 +192,16 @@ $http(req).then(function(data){
   console.log(err);
 })
 }
-
-
-
 $scope.delete = function(id){ //deletes a specific url.
-console.log(id)
   var req = {
    method: 'DELETE',
    url: '/delete',
    headers: {
      'Content-Type': 'application/json'
    },
+
    data: { id:id}
+
  }
 
  $http(req).then(function(data){
@@ -230,7 +228,7 @@ $scope.like = function(username,name){
   $scope.search(username)
 
  }, function(err){
-  // $scope.search(username)
+  
   console.log(err);
 })
 

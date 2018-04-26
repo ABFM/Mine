@@ -155,7 +155,9 @@ app.post('/add', function(req, res){
 app.delete('/delete', function(req,res) {
   console.log(req.body.id);
   const name = req.body.name;
+
   db.Url.remove({_id : req.body.id}, function(err,data){
+
     if(err){
       console.log(err);
     } else {
@@ -222,7 +224,6 @@ app.post('/import', function(req, res) {
 })
 
 app.post('/like',function(req,res){
-
       db.Url.update({userName:req.body.username, urlName:req.body.name}, { $push: {likesUsers: req.session.user } , $inc :{likes: 1} },function(err,done){
       if(err){
         console.log(err)
@@ -230,6 +231,24 @@ app.post('/like',function(req,res){
       console.log('success',done)
       res.sendStatus(201)
   });
+    
+  // })
+  
+
+})
+
+app.post('/unlike',function(req,res){
+  
+      db.Url.update({userName:req.body.username, urlName:req.body.name}, { $pull: {likesUsers: req.session.user } , $inc :{likes: -1} },function(err,done){
+      if(err){
+        console.log(err)
+      } else{ 
+          console.log('success',done)
+          res.sendStatus(201)
+       }
+      
+  });
+
 
   // })
 
