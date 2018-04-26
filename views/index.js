@@ -12,9 +12,9 @@
      }
 
      $http(req).then(function(data){
-      $window.location.href = '/main.html'; //redirect the user to the main page 
+      $window.location.href = '/main.html'; //redirect the user to the main page
 
-    }, function(err){console.log(err); 
+    }, function(err){console.log(err);
   alert("username or password is wrong") //stay on the login page
 
 })
@@ -22,7 +22,7 @@
      $scope.loginPassword='';
    }
    $scope.addClick = function(){
-     if($scope.password === $scope.confirmPassword && $scope.password !== undefined && $scope.username && $scope.email){ 
+     if($scope.password === $scope.confirmPassword && $scope.password !== undefined && $scope.username && $scope.email){
        var req = {
          method: 'POST',
          url: '/signup',
@@ -33,7 +33,7 @@
        }
 
        $http(req).then(function(data){console.log(data);
-         $window.location.href = '/main.html'; //nafs al7aki yalli fo2
+         $window.location.href = '/main.html'; //redirect the user to the main page 
 
 
        }, function(){
@@ -47,5 +47,3 @@
      $scope.confirmPassword ='';
    }
  }])
-
-

@@ -4,7 +4,7 @@
   "description": "green-field",
   "main": "server.js",
   "scripts": {
-    "test": "npm test",
+    "test": "mocha",
     "start": "nodemon server.js"
   },
   "repository": {
@@ -21,11 +21,13 @@
     "angular": "^1.6.10",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.9",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "jquery": "^3.1.1",
+    "mocha": "^5.1.1",
     "mongoose": "^5.0.15",
     "node": "^8.11.1",
     "nodemon": "^1.17.3"
