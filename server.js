@@ -165,6 +165,10 @@ app.delete('/delete', function(req,res) {
 
 
 app.post('/searchUser', function(req, res) {
+console.log(req.body);
+if(req.body.username === undefined){
+  res.sendStatus(404)
+};
   if(req.session.user){
   const username = req.body.username;
   db.Url.find({userName:username}, function(err, data) {
@@ -197,6 +201,9 @@ app.get('/getUser', function (req, res) {
 })
 
 app.post('/import', function(req, res) {
+if (req.body.name === ''){
+  res.sendStatus(404)
+}
   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
     if(err) {
       console.log(err);
