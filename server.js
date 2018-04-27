@@ -127,26 +127,31 @@ app.post('/fetch', function (req, res){
 });
 
 app.post('/add', function(req, res){
-  if(req.session.user){
-  let url = new db.Url({
-  url: req.body.url,
-  urlName: req.body.name,
-  category: req.body.category,
-  userName: req.session.user,
-  likes: 0,
-  likesUsers: []
-  });
-  console.log(req.session);
-  url.save(function(err,data){
-    if(err){
-      console.log(err)
-    }
-    else {
-      console.log('saved', data);
-      res.sendStatus(201)
-    }
-  })
-} else { res.sendStatus(700)}
+  if (req.session.user === undefined || req.body.url === undefined || req.body.name === undefined || req.body.category === undefined) {
+    res.sendStatus(404)
+  }
+  else {
+    let url = new db.Url({
+    url: req.body.url,
+    urlName: req.body.name,
+    category: req.body.category,
+    userName: req.session.user,
+    likes: 0,
+    likesUsers: []
+    });
+    console.log(req.session);
+    url.save(function(err,data){
+      if(err){
+        console.log(err)
+      }
+      else {
+        console.log('saved', data);
+        res.sendStatus(201)
+      }
+    })
+
+  }
+
 });
 
 app.delete('/delete', function(req,res) {
@@ -165,24 +170,20 @@ app.delete('/delete', function(req,res) {
 
 
 app.post('/searchUser', function(req, res) {
-console.log(req.body);
-if(req.body.username === undefined){
-  res.sendStatus(404)
-};
-  if(req.session.user){
-  const username = req.body.username;
-  db.Url.find({userName:username}, function(err, data) {
+  if(req.session.user && req.body.username){
+    const username = req.body.username;
+    db.Url.find({userName:username}, function(err, data) {
     if(err){
       console.log(err);
-    } else {
-
+    }
+    else {
       res.json(data);
-
     }
   })
-} else {
-  res.sendStatus(700)
-}
+  }
+  else {
+  res.sendStatus(404)
+  }
 })
 
 
@@ -201,9 +202,6 @@ app.get('/getUser', function (req, res) {
 })
 
 app.post('/import', function(req, res) {
-if (req.body.name === ''){
-  res.sendStatus(404)
-}
   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
     if(err) {
       console.log(err);
