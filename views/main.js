@@ -228,7 +228,7 @@ $scope.like = function(username,name){
   $scope.search(username)
 
  }, function(err){
-  
+
   console.log(err);
 })
 

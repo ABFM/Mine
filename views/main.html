@@ -1,4 +1,4 @@
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,42 +7,34 @@
   <title>
 
   </title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
-<body ng-app= 'app2'>
-<div  ng-controller = 'myCtrl2' ng-init='init()'>
-  <ul class="nav  nav-pills bar">
-    <li ng-click='logout()' class="pull-right logout">Logout</li>
-    <li class="pull-right">
-          <h5 class="col-sm-9">{{user.userName}}</h5>
-          <h5 class="col-sm-9">{{user.email}}</h5>
-          <img src="profile.png" alt="" width="70px">
+<body ng-app= 'app2' class="container-fluid">
+<div  ng-controller = 'myCtrl2' ng-init='init()' >
+<img src="logo.png" style="width: 140px;" />
+  <div class="float-right" style="margin-left: 10px;">
+    <ul class="nav navbar-nav navbar-right">
+          <li ng-click='logout()' style="font-size:10px;"><a href="#">Logout</a></li>
+    </ul>
+    <p>{{user.userName}}</p>
+    <p style="margin-top: -12px;">{{user.email}}</p>
 
-        </li>
+  </div>
+  <div class="float-right">
+  <img src="profile.png" alt="" width="70px" class="float-right">
+  </div>
+  <div class="nav-menu ">
 
-        <li><img src="logo.png" style="width: 70px;"/> </li>
-  </ul>
-
-
-
-<div class="container-fluid">
-  <div class="row content">
-
-    <div class="col-sm-3 sidenav">
-
-      <ul class="nav nav-pills nav-stacked menuAll">
+      <ul class="nav nav-pills nav-stacked">
         <li ><a href="#!Home" class="menu">Home</a></li>
         <li ><a href="#!Videos" ng-click='getVideos()' class="menu">Videos</a></li>
         <li ><a href="#!Articles" ng-click='getArticles()' class="menu">Articles</a></li>
         <li ><a href="#!Photos" ng-click='getPhotos()' class="menu">Photos</a></li>
         <li ><a href="#!Music" ng-click='getMusic()' class="menu">Music</a></li>
         <li ><a href="#!Others" ng-click='getOthers()' class="menu">Other</a></li>
-      </ul><br>
-
-    </div>
-
+      </ul>
       <div class="col-sm-9" ng-view></div>
 
 
