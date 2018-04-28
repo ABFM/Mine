@@ -19,7 +19,7 @@
 
 ## Usage
 
-> The website is very easy to use, all what you need to do id to create an account, and you can add your favourite URLs from the home page, also you can search for another user favorites in the search section also in the home page, like others' favourites and add it to your list if you like.
+> This application is used to store your favorite URLS in the internet, also you can search for another user favorites, like others' favourites and add it to your list if you like.
 
 ## Requirements
 
