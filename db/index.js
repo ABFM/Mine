@@ -11,12 +11,14 @@ db.once('open', function() {
 });
 
 const userSchema = mongoose.Schema({
+  //for the users
   userName: String,
   passWord: String,
   email: String,
   image: String
 });
 const urlSchema = mongoose.Schema({
+  //for the urls
   url: String,
   urlName: String,
   category: String,

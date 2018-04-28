@@ -153,7 +153,7 @@ $scope.logout= function(){ //redirect the user to the login page.
 }
 
 
-$scope.init = function (){
+$scope.init = function (){ // to fetch the user categories from data base. 
   $scope.urlMessage = false;
   $scope.getUser()
   var route=$window.location.href.split("!")[1];
@@ -181,6 +181,7 @@ $scope.init = function (){
 
 
 $scope.getUser = function(){
+  //fetching the user data from data base and display it in the DOM
   var req = {
  method: 'GET',
  url: '/getUser'
@@ -192,7 +193,7 @@ $http(req).then(function(data){
   console.log(err);
 })
 }
-$scope.delete = function(id){ //deletes a specific url.
+$scope.delete = function(id){ //delete a specific url.
   var req = {
    method: 'DELETE',
    url: '/delete',
@@ -212,6 +213,7 @@ $scope.delete = function(id){ //deletes a specific url.
 })
 }
 $scope.like = function(username,name){
+  //able the user to like  others content
   var req = {
 
    method: 'POST',
@@ -235,6 +237,7 @@ $scope.like = function(username,name){
 
 }
 $scope.unlike = function(username,name){
+  //able the user to unlike  his like 
   var req = {
    method: 'POST',
    url: '/unlike',
@@ -254,6 +257,7 @@ $scope.unlike = function(username,name){
 })
 }
 $scope.import = function(username,name){
+  //let the user import the others urls, and save it in his categories
   var req = {
 
    method: 'POST',
@@ -270,7 +274,8 @@ $scope.import = function(username,name){
   console.log(err);
 })
 }
-$scope.search = function (username) {
+$scope.search = function (username) {// searching for other users and display other user in the DOM
+
 $scope.searchUser = username;
   var req = {
    method: 'POST',

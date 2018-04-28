@@ -8,7 +8,7 @@ const util = require('./helpers/utility');
 const bcrypt = require('bcrypt');
 const app = express()
 
-// using of modules-------------------
+// using the view engines
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile)
@@ -26,12 +26,13 @@ app.use(session({
 
 
 
-// the routes handlers----------------
+
 
 
 
 
 app.post('/login',function(req, res){
+  //searching if the user exist in the schema and checking if the password is right, and create session for him.  
   var userName = req.body.username;
   var password = req.body.password;
   db.User.findOne({userName:userName}, function(err, data){
@@ -63,6 +64,7 @@ app.post('/login',function(req, res){
 
 
 app.get('/logout', function(req, res) {
+  //destroying the session for the user and let him quit
   req.session.destroy(function() {
     res.sendStatus(200);
   });
@@ -70,6 +72,7 @@ app.get('/logout', function(req, res) {
 
 
 app.post('/signup', function(req, res){
+  //checking if the user exist in the schema, if not, hashing his passowrd and create session for him and save his data inside our schema 
   let username = req.body.username;
   let password = req.body.password;
   let email = req.body.email;
@@ -83,9 +86,9 @@ app.post('/signup', function(req, res){
     }
     else {
       if (data.length > 0) {
-        res.status(404)
+        res.sendStatus(404)
         console.log('already exist');
-        res.redirect('/')
+       
       }
       else {
         bcrypt.genSalt(10, function (err, salt) {
@@ -114,6 +117,7 @@ app.post('/signup', function(req, res){
 })
 });
 app.post('/fetch', function (req, res){
+  //retrieving the categories for the  session user
   db.Url.find({
     category: req.body.category,
     userName: req.session.user
@@ -128,8 +132,10 @@ app.post('/fetch', function (req, res){
   })
 });
 
-app.post('/add', function(req, res){
+app.post('/add', function(req, res){ //let the user add a new url for him, and save it inside our schema
+
   if (req.session.user === undefined || req.body.url === undefined || req.body.name === undefined || req.body.category === undefined) {
+        //we're checking if the user is not a member(has no user session) or if the inputs are empty, the user is denied access 
     res.sendStatus(404)
   }
   else {
@@ -157,6 +163,7 @@ app.post('/add', function(req, res){
 });
 
 app.delete('/delete', function(req,res) {
+  //deleting a specific url 
   console.log(req.body.id);
   const name = req.body.name;
 
@@ -171,15 +178,16 @@ app.delete('/delete', function(req,res) {
 })
 
 
-app.post('/searchUser', function(req, res) {
-  if(req.session.user && req.body.username){
+app.post('/searchUser', function(req, res) { // searching for other users' urls
+  if(req.session.user && req.body.username){ //we're checking if the user is not a member(has no user session), or empty input, his access will be denied 
+
     const username = req.body.username;
     db.Url.find({userName:username}, function(err, data) {
     if(err){
       console.log(err);
     }
     else {
-      res.json(data);
+      res.send(data);
     }
   })
   }
@@ -192,6 +200,7 @@ app.post('/searchUser', function(req, res) {
 
 
 app.get('/getUser', function (req, res) {
+  //fetching the user data for display it in the DOM (his username, email and photo)
  db.User.findOne({userName:req.session.user}, function(err, data) {
    if (err) {
      console.log(err);
@@ -204,6 +213,7 @@ app.get('/getUser', function (req, res) {
 })
 
 app.post('/import', function(req, res) {
+  //let the user import the others urls, and save it in his categories
   db.Url.findOne({userName: req.body.username, urlName:req.body.name}, function(err, data) {
     if(err) {
       console.log(err);
@@ -228,7 +238,8 @@ app.post('/import', function(req, res) {
 })
 
 app.post('/like',function(req,res){
-      db.Url.update({userName:req.body.username, urlName:req.body.name}, { $push: {likesUsers: req.session.user } , $inc :{likes: 1} },function(err,done){
+      //let the user like others' content and increment the likes and add the user in the session to the likesUsers array
+       db.Url.update({userName:req.body.username, urlName:req.body.name}, { $push: {likesUsers: req.session.user } , $inc :{likes: 1} },function(err,done){
       if(err){
         console.log(err)
       }
@@ -236,13 +247,13 @@ app.post('/like',function(req,res){
       res.sendStatus(201)
   });
 
-  // })
+
 
 
 })
 
 app.post('/unlike',function(req,res){
-
+        //let the user  unlike a content and decrement the likes splice the session user from the likesUsers array
       db.Url.update({userName:req.body.username, urlName:req.body.name}, { $pull: {likesUsers: req.session.user } , $inc :{likes: -1} },function(err,done){
       if(err){
         console.log(err)
@@ -253,26 +264,8 @@ app.post('/unlike',function(req,res){
 
   });
 
-
-  // })
-
-
 })
 
-app.post('/unlike',function(req,res){
-
-      db.Url.update({userName:req.body.username, urlName:req.body.name}, { $pull: {likesUsers: req.session.user } , $inc :{likes: -1} },function(err,done){
-      if(err){
-        console.log(err)
-      } else{
-          console.log('success',done)
-          res.sendStatus(201)
-       }
-
-  });
-
-
-})
 
 
 
