@@ -23,11 +23,13 @@
   </div>
   <div class="float-right">
 
-  <img ng-src="{{ user.image || defaultImage}}" alt="" style="width: 70px; height: 50px" class="float-right">
-     <form>
-               <label class="btn btn-primary">
+  <img ng-src="{{ user.image || defaultImage}}" alt="" style="width: 90px ; height: 90px;  border-radius: 300px;" class="float-right">
+                 <br>
+               <br>
+     <form class="float-right" style="margin-right: -15px;">
+               <label style="font-size: 8px" class="btn btn-primary ">
                  Change photo
-                   <input type="file"  name="myfile" style="display: none" onchange="angular.element(this).scope().photo(this.files)"> <!-- read about it, if we tell you everything you'll never learn -->
+                   <input type="file"  name="myfile" style="display: none ; " onchange="angular.element(this).scope().photo(this.files)"> <!-- read about it, if we tell you everything you'll never learn -->
                </label>
                <br>
                <br>
