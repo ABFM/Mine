@@ -12,8 +12,8 @@ const app = express()
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile)
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static(path.join(__dirname , 'views')));
 app.use(session({
   secret: "shhh, it is a secret",
@@ -73,6 +73,7 @@ app.post('/signup', function(req, res){
   let username = req.body.username;
   let password = req.body.password;
   let email = req.body.email;
+  let image = req.body.image;
   db.User.find({
     userName: username
   }, function(err, data){
@@ -93,7 +94,8 @@ app.post('/signup', function(req, res){
           let user = db.User({
             userName: username,
             passWord: hash,
-            email: email
+            email: email,
+            image: image
           })
           user.save((err, data) =>{
             if (err){
