@@ -1,8 +1,9 @@
+<!-- the home page -->
 <div class="components">
 	<h6>You can save your favorite URLS here!</h6>
 	<h6>just paste your url in the input and just give it a name !</h6>
 	<br>
-	<!-- 00962-797590369 call me if you dont undersatand! 
+	<!-- 00962-797590369 call me if you dont understand! 
 		 Mohd.alduraidi@gmail.com
 			
 	-->
@@ -48,7 +49,7 @@
 <br>
 <div>
 	<input type="text" ng-show = "!!usernames" class="form-control"   placeholder="Search by urlName	" ng-model = 'username1' style="width: 500px">
-	<ul ng-repeat = "username in usernames | filter: username1" >
+	<ul ng-repeat = "username in usernames | filter: username1" > <!-- filters the urls based on the url names -->
 
 		<li>
 			<table class=" table-light table table-bordered table-hover table-striped ">

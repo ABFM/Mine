@@ -8,7 +8,7 @@ const util = require('./helpers/utility');
 const bcrypt = require('bcrypt');
 const app = express()
 
-// using the view engines
+// using the view engines and other middlwares
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile)
@@ -76,7 +76,7 @@ app.post('/signup', function(req, res){
   let username = req.body.username;
   let password = req.body.password;
   let email = req.body.email;
-  let image = req.body.image;
+  
   db.User.find({
     userName: username
   }, function(err, data){
@@ -97,8 +97,8 @@ app.post('/signup', function(req, res){
           let user = db.User({
             userName: username,
             passWord: hash,
-            email: email,
-            image: image
+            email: email
+           
           })
           user.save((err, data) =>{
             if (err){
@@ -265,7 +265,17 @@ app.post('/unlike',function(req,res){
   });
 
 })
+app.post('/photo',function(req,res){ // add a personal photo for the user
+var image = req.body.image
+db.User.update({userName: req.session.user}, { $set: { image: image }},function(err,data){
+  if(err){
+    throw err
+  }else{
+    res.send(data)
+  }
+})
 
+})
 
 
 
