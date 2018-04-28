@@ -22,6 +22,34 @@ app.config(["$routeProvider", function($routeProvider) {
     })
   }])
 app.controller('myCtrl2', ['$scope','$http','$window',function($scope,$http,$window){
+  $scope.defaultImage =  'https://orig00.deviantart.net/5132/f/2015/105/e/f/vegeta_facebook_profil_by_mjd360-d8ps1yx.jpg'
+
+   $scope.photo = function(file) {
+ 
+    var file = file[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = function(e) {
+      
+     
+             var req ={  
+         method: 'POST',
+        url:"/photo",
+       headers: {
+      'Content-Type': 'application/json'
+      },
+    data: {
+         image:e.target.result
+    }            
+  }      
+
+  $http(req).then(function(){
+    $window.location.reload()
+  }, function(){
+  });
+ 
+ }
+}
 
 $scope.getVideos = function(){ //fetch the videos urls from the database
   var req = {
@@ -42,8 +70,8 @@ $scope.getVideos = function(){ //fetch the videos urls from the database
 }
 
 
- $scope.getArticles = function(){ //nafs al eshi
-   var req = {
+ $scope.getArticles = function(){ //fetch the Articles urls from the database
+      var req = {
      method: 'POST',
      url: '/fetch',
      headers: {
@@ -59,8 +87,8 @@ $scope.getVideos = function(){ //fetch the videos urls from the database
 
   })
  }
- $scope.getOthers = function(){ //nafs al eshi
-   var req = {
+ $scope.getOthers = function(){ //fetch the others urls from the database
+      var req = {
      method: 'POST',
      url: '/fetch',
      headers: {
@@ -77,7 +105,7 @@ $scope.getVideos = function(){ //fetch the videos urls from the database
   })
  }
 
- $scope.getPhotos = function(){ //nafs al eshi
+ $scope.getPhotos = function(){ //fetch the photos urls from the database
    var req = {
      method: 'POST',
      url: '/fetch',
@@ -94,7 +122,7 @@ $scope.getVideos = function(){ //fetch the videos urls from the database
 
   })
  }
- $scope.getMusic = function(){ //nafs al eshi
+ $scope.getMusic = function(){ //fetch the music urls from the database
    var req = {
      method: 'POST',
      url: '/fetch',
@@ -112,7 +140,7 @@ $scope.getVideos = function(){ //fetch the videos urls from the database
   })
  }
 
-$scope.addUrl = function (name,url, category){ // add url to the database
+$scope.addUrl = function (name,url, category){ // add a new url to the database
 
   var req = {
    method: 'POST',
@@ -132,8 +160,6 @@ $scope.urlMessage = true;
 
 }, function(response){
 
-if(response.status ===700)
-$scope.logout()
 })
 
 }
@@ -153,7 +179,7 @@ $scope.logout= function(){ //redirect the user to the login page.
 }
 
 
-$scope.init = function (){
+$scope.init = function (){ // to fetch the user categories from data base. 
   $scope.urlMessage = false;
   $scope.getUser()
   var route=$window.location.href.split("!")[1];
@@ -181,6 +207,7 @@ $scope.init = function (){
 
 
 $scope.getUser = function(){
+  //fetching the user data from data base and display it in the DOM
   var req = {
  method: 'GET',
  url: '/getUser'
@@ -192,7 +219,7 @@ $http(req).then(function(data){
   console.log(err);
 })
 }
-$scope.delete = function(id){ //deletes a specific url.
+$scope.delete = function(id){ //delete a specific url.
   var req = {
    method: 'DELETE',
    url: '/delete',
@@ -212,6 +239,7 @@ $scope.delete = function(id){ //deletes a specific url.
 })
 }
 $scope.like = function(username,name){
+  //able the user to like  others content
   var req = {
 
    method: 'POST',
@@ -235,6 +263,7 @@ $scope.like = function(username,name){
 
 }
 $scope.unlike = function(username,name){
+  //able the user to unlike  his like 
   var req = {
    method: 'POST',
    url: '/unlike',
@@ -254,6 +283,7 @@ $scope.unlike = function(username,name){
 })
 }
 $scope.import = function(username,name){
+  //let the user import the others urls, and save it in his categories
   var req = {
 
    method: 'POST',
@@ -270,7 +300,8 @@ $scope.import = function(username,name){
   console.log(err);
 })
 }
-$scope.search = function (username) {
+$scope.search = function (username) {// searching for other users and display other user in the DOM
+
 $scope.searchUser = username;
   var req = {
    method: 'POST',
@@ -282,6 +313,10 @@ $scope.searchUser = username;
  }
 
  $http(req).then(function(data){
+  console.log("bushra burshra ", data)
+  if(data['data'].length===0){
+    alert("user not found!")
+  }
   for (var i = 0; i < data['data'].length; i++) {
 
     data['data'][i]['like'] =(data['data'][i].likesUsers.indexOf($scope.user.userName) !== -1)
@@ -289,10 +324,10 @@ $scope.searchUser = username;
   }
    $scope.usernames = data['data']
  }, function(response){
-  //console.log(err);
-  if(response.status ===700)
-  $scope.logout()
+
+  
 })
+
 
 }
 
