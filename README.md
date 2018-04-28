@@ -1,33 +1,46 @@
+# Mine
 
-# Mine #
+> A place where you can save your favorite URLs from all over the internet arranged in catergories, view other users categories.
 
-## Heading ##
-  Mine is an application which users can use to add all their favourite URLs in one place.
+## Team
 
-## Sub-Heading ##
+ - __Product Owner__: Faris Arabi
+ - __Scrum Master__: Bushra alabsi
+ - __Development Team Members__: Ahmad Zoaby, Mohammed Alduraidi
 
-  This application is for internet navigators where they can collect every url they interested in from different sites.
+## Table of Contents
 
-## Summary ##
+1. [Usage](#Usage)
+1. [Requirements](#requirements)
+1. [Development](#development)
+   1. [Installing Dependencies](#installing-dependencies)
+   1. [Tasks](#tasks)
+1. [Team](#team)
+1. [Contributing](#contributing)
 
- Mine is web application where user can save his URLs in a stylish and organized way instead of the traditional way.
+## Usage
+
+> The website is very easy to use, all what you need to do id to create an account, and you can add your favourite URLs from the home page, also you can search for another user favorites in the search section also in the home page, like others' favourites and add it to your list if you like.
+
+## Requirements
+
+- Node 7.4.x
+- MongoDB 3.0.x
+
+## Development
+
+### Installing Dependencies
+
+From within the root directory:
+
+```sh
+ npm install``` 
+
+### Roadmap
+
+View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
 
-## Problem ##
-  Mine save the user time he doesn't need to search every time for a specific topic,
-  only what he needs is to save the url he interested in in a organized way.
+## Contributing
 
-## Solution ##
-  Mine save user URLs in organized way ,user can add the urls in their fit categories so he can use the URLs and can share them with other Mine users in easy way.
-
-## Quote from You ##
-made with love,
-## How to Get Started ##
-
-  Mine is easy and friendly to use ,only you need is to create account , and then Mine becomes yours.
-
-## Customer Quote ##
-I was suffering when I to search every time for the web sites I want , but with Mine the life now is easier
-and I can see the urls of other people.
-## Closing and Call to Action ##
-  Go to https://mine-greeen.herokuapp.com/ and then create your account and enjoy Mine.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
