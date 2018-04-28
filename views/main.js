@@ -187,7 +187,7 @@ $scope.getUser = function(){
 }
 
 $http(req).then(function(data){
-  $scope.user = data['data']
+  $scope.user = data['data'];
 }, function(err){
   console.log(err);
 })

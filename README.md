@@ -12,11 +12,10 @@
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
-1. [Development](#development)
-   1. [Installing Dependencies](#installing-dependencies)
-   1. [Tasks](#tasks)
+1. [Installing Dependencies](#installing-dependencies)
+1. [How to Start](#how-to-start)
 1. [Team](#team)
-1. [Contributing](#contributing)
+1. [Roadmap](#roadmap)
 
 ## Usage
 
@@ -24,10 +23,10 @@
 
 ## Requirements
 
-- Node 7.4.x
-- MongoDB 3.0.x
+- Node v8.10.x
+- MongoDB v3.6.3
 
-## Development
+
 
 ### Installing Dependencies
 
@@ -36,11 +35,20 @@ From within the root directory:
 ```sh
  npm install``` 
 
+## How to Start
+
+```sh
+ mongod
+ 
+ From within the root directory on another terminal window:
+ 
+ npm start 
+ 
+ ``` 
+
+
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://github.com/ABFM/Mine/issues)
 
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.

@@ -21,6 +21,36 @@
      $scope.loginUsername=''; //empty the inputs after clicking the button
      $scope.loginPassword='';
    }
+
+  $scope.photo = function(file) {
+ 
+    var file = file[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = function(e) {
+      $scope.image = e.target.result;
+     
+    //   var req ={  
+    //   method: 'POST',
+    //     url:"/photo",
+    //    headers: {
+    //   'Content-Type': 'application/json'
+    //   },
+    // data: {
+    //      image:fileReader.result
+    // }            
+    //}      
+
+  // $http(req).then(function(){
+
+  //    $scope.picture = fileReader.result
+     
+  // }, function(){
+   
+
+  // });
+ }
+}
    $scope.addClick = function(){
      if($scope.password === $scope.confirmPassword && $scope.password !== undefined && $scope.username && $scope.email){
        var req = {
@@ -29,7 +59,7 @@
          headers: {
            'Content-Type': 'application/json'
          },
-         data: { username: $scope.username, password: $scope.password , email:$scope.email }
+         data: { username: $scope.username, password: $scope.password , email:$scope.email , image: $scope.image }
        }
 
        $http(req).then(function(data){console.log(data);
