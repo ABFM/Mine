@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.logo {
+    max-width: 200px;
+    margin-top: -30px;
+}
+.bg-oran {
+    background-color: #FF5729;
+}
+.bg-darkTeal {
+    background-color: #00585E;
+}
+.bg-lightTeal {
+    background-color: #009494;
+
+}
+.bg-myDark {
+    background-color: #454445
+
+}
+.text-orange {
+    color: #FF5729;
+}
+.text-darkTeal {
+    color: #00585E;
+}
+.text-lightTeal {
+    color: #009494;
+
+}
+.text-myDark {
+    color: #454445
+
+}
+.text-nunito {
+    font-family: Nunito;
+}
+
