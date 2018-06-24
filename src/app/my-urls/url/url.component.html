@@ -1,0 +1,20 @@
+<div class="card mb-2 mt-2" style="width: 18rem;">
+  <div class="row">
+    <div class="col-3 mt-2 ml-2">
+      <img class="card-img-top profile-img" src="{{ model.image }}" alt="url owner">
+    </div>
+    <div class="col-6 mt-4">
+      <h5 class="card-title">{{ model.owner }}</h5>      
+    </div>
+  </div>  
+  <hr>
+    <div class="card-body">
+      <h5 class="card-title">{{ model.name }}</h5>
+      <p class="card-text">{{ model.description }}</p>
+      <p class="url text-secondary">{{model.body}}</p>
+      <hr>
+      <a href="{{model.body}}" class="btn btn-outline-info">Open</a>
+      <a href="#" class="btn btn-outline-primary">Like</a>
+      <a href="#" class="btn btn-outline-secondary">Add To Mine</a>
+    </div>
+  </div>
