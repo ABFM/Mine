@@ -8,3 +8,10 @@
     border-style: solid;
     border-width: 10px;
 }
+a.btn {
+    color: #ED213A;
+    text-decoration: transparent;
+}
+a.btn:hover {
+    color: white;
+}
