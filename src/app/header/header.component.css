@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 nav {
     background-image: url(http://www.designbolts.com/wp-content/uploads/2014/04/Purple_floral-Seamless-Pattern.png);
     background-size: 280px;
@@ -5,9 +6,7 @@ nav {
 }
 
 .logo {
-    max-width: 250px;
-    margin-top: -70px;
-    border-radius: 7px;
+    font-family: 'Dancing Script', cursive;
 }
 .profile {
     max-width: 50px;
