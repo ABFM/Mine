@@ -1,3 +1,27 @@
-<p>
-  friends works!
-</p>
+<div class="container mt-2">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let friend of friends">
+      <a href="">
+        <div class="row">
+          <div class="col-1">
+            <img src="{{ friend.image }}" alt="{{ friend.name }}" class="img">
+          </div>
+          <div class="col-9">
+            <h4 class="mt-2 ml-3">
+              {{ friend.name }}
+            </h4>
+            <p class=" ml-3 text-secondary">
+                {{ friend.job }}
+            </p>
+
+          </div>
+          <div class="col-2">
+            <a class="btn btn-outline-dark">
+              See Profile
+            </a>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

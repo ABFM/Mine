@@ -1,0 +1,10 @@
+.img {
+    max-width: 100px;
+}
+a {
+    color: #ED213A;
+    text-decoration: transparent;
+}
+a.btn:hover {
+    color: white;
+}
