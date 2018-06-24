@@ -9,7 +9,9 @@ import { MyUrlsComponent } from './my-urls/my-urls.component';
 import { HomeComponent } from './home/home.component';
 
 const appRouts: Routes = [
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+  {path: 'add', component: AddComponent},
+  {path: 'myurls', component: MyUrlsComponent},
 ];
 
 @NgModule({
