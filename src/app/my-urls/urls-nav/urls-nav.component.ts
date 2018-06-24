@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./urls-nav.component.css']
 })
 export class UrlsNavComponent implements OnInit {
+  activeTab = 'Articles';
 
   constructor() { }
 

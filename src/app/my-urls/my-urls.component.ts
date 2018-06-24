@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-urls.component.css']
 })
 export class MyUrlsComponent implements OnInit {
-urls = [
+  urls = [
   {
     owner: 'owner name',
     image: 'https://www.infosecurityeurope.com/images/155_162_delegate_large.png?h=162&type=3&w=155&q=100&v=636595767522260796',

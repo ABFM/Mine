@@ -1,17 +1,17 @@
 <ul class="nav nav-tabs justify-content-center">
     <li class="nav-item">
-      <a class="nav-link active">Articles</a>
+      <a class="nav-link" [ngClass]="activeTab === 'Articles' ? 'active' : ''" (click)="activeTab = 'Articles'">Articles</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Videos</a>
+      <a class="nav-link" [ngClass]="activeTab === 'Videos' ? 'active' : ''" (click)="activeTab = 'Videos'">Videos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Music</a>
+      <a class="nav-link" [ngClass]="activeTab === 'Music' ? 'active' : ''" (click)="activeTab = 'Music'">Music</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Photos</a>
+      <a class="nav-link" [ngClass]="activeTab === 'Photos' ? 'active' : ''" (click)="activeTab = 'Photos'">Photos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Others</a>
+      <a class="nav-link" [ngClass]="activeTab === 'Others' ? 'active' : ''" (click)="activeTab = 'Others'">Others</a>
     </li>
 </ul>
