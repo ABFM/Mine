@@ -1,0 +1,12 @@
+nav {
+    box-shadow: 2px 2px 15px #888;
+    background-image: url(http://www.designbolts.com/wp-content/uploads/2014/04/Purple_floral-Seamless-Pattern.png);
+    background-size: 180px;
+}
+.brand  {
+    border-radius: 10px;
+}
+.logo {
+    max-width: 170px;
+    margin-top: -30px;
+}
