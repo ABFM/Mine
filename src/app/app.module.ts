@@ -9,11 +9,15 @@ import { MyUrlsComponent } from './my-urls/my-urls.component';
 import { HomeComponent } from './home/home.component';
 import { UrlsNavComponent } from './my-urls/urls-nav/urls-nav.component';
 import { UrlComponent } from './my-urls/url/url.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FriendsComponent } from './friends/friends.component';
 
 const appRouts: Routes = [
   {path: '', component: HomeComponent},
   {path: 'add', component: AddComponent},
   {path: 'myurls', component: MyUrlsComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'friends', component: FriendsComponent}
 ];
 
 @NgModule({
@@ -24,7 +28,9 @@ const appRouts: Routes = [
     MyUrlsComponent,
     HomeComponent,
     UrlsNavComponent,
-    UrlComponent
+    UrlComponent,
+    ProfileComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,
