@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-url',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UrlComponent implements OnInit {
 
-  model: {
+  @Input() model: {
     owner: string,
     image: string,
     name: string,
