@@ -1,4 +1,5 @@
-<ul class="nav nav-tabs justify-content-center">
+<div class="container">
+  <ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link" [ngClass]="activeTab === 'Articles' ? 'active' : ''" (click)="saveCurrentTabStatus('Articles')">Articles</a>
     </li>
@@ -14,4 +15,6 @@
     <li class="nav-item">
       <a class="nav-link" [ngClass]="activeTab === 'Others' ? 'active' : ''" (click)="saveCurrentTabStatus('Others')">Others</a>
     </li>
-</ul>
+  </ul>
+  
+</div>
