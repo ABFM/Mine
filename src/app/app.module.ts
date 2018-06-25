@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { CategoryComponent } from './category/category.component';
 import { DataService } from './services/data.service';
+import { FooterComponent } from './footer/footer.component';
 
 const appRouts: Routes = [
   {path: '', component: HomeComponent},
@@ -33,7 +34,8 @@ const appRouts: Routes = [
     UrlComponent,
     ProfileComponent,
     FriendsComponent,
-    CategoryComponent
+    CategoryComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

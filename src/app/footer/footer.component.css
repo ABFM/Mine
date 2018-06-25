@@ -1,0 +1,14 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-image: url(http://www.designbolts.com/wp-content/uploads/2014/04/Purple_floral-Seamless-Pattern.png);
+    background-size: 280px;
+}
+p {
+    color: azure;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 20px;
+}
