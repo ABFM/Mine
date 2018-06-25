@@ -12,6 +12,7 @@ import { UrlComponent } from './my-urls/url/url.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { CategoryComponent } from './category/category.component';
+import { DataService } from './services/data.service';
 
 const appRouts: Routes = [
   {path: '', component: HomeComponent},
@@ -38,7 +39,7 @@ const appRouts: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRouts)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

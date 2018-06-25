@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-urls-nav',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class UrlsNavComponent implements OnInit {
   activeTab = 'Articles';
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
   }
 
+  saveCurrentTabStatus(status: string) {
+    this.data.setCurrentTab(status);
+    this.activeTab = this.data.getCurrentTab();
+  }
 }
