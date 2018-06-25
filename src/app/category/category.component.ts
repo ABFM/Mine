@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
-export class CategoryComponent implements OnInit {
-  urls = [
+export class CategoryComponent implements OnInit, DoCheck {
+  data = [
     {
       owner: 'owner name',
       image: 'https://www.infosecurityeurope.com/images/155_162_delegate_large.png?h=162&type=3&w=155&q=100&v=636595767522260796',
@@ -37,12 +38,24 @@ export class CategoryComponent implements OnInit {
       name: 'Card title',
       description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
       body: 'https://web.facebook.com/?_rdc=1&_rdr',
-      category: 'photos'
+      category: 'Photos'
     }
   ];
-  constructor() { }
+  currentTab: string;
+  urls = [];
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.ngDoCheck();
+  }
+
+
+  ngDoCheck() {
+    this.currentTab = this.dataService.getCurrentTab();
+    this.urls = this.data.filter((e) => {
+      return e.category === this.currentTab;
+    });
   }
 
 }
