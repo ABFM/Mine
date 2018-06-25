@@ -11,6 +11,7 @@ import { UrlsNavComponent } from './my-urls/urls-nav/urls-nav.component';
 import { UrlComponent } from './my-urls/url/url.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FriendsComponent } from './friends/friends.component';
+import { CategoryComponent } from './category/category.component';
 
 const appRouts: Routes = [
   {path: '', component: HomeComponent},
@@ -30,7 +31,8 @@ const appRouts: Routes = [
     UrlsNavComponent,
     UrlComponent,
     ProfileComponent,
-    FriendsComponent
+    FriendsComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
