@@ -1,7 +1,7 @@
 <div class="container mt-2">
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let friend of friends">
-      <a href="">
+    <li class="list-group-item" *ngFor="let friend of friends; let i = index">
+      <a [routerLink]="['/friends', i]">
         <div class="row">
           <div class="col-1">
             <img src="{{ friend.image }}" alt="{{ friend.name }}" class="img">
