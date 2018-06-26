@@ -23,14 +23,16 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { FriendComponent } from './home/friends/friend/friend.component';
 
 
 const appRouts: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'add', component: AddComponent},
-  {path: 'myurls', component: MyUrlsComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'friends', component: FriendsComponent}
+  { path: '', component: HomeComponent },
+  { path: 'add', component: AddComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'friends', component: FriendsComponent },
+  { path: 'myurls', component: MyUrlsComponent },
+  { path: 'friends/:id', component: FriendComponent }
 ];
 
 @NgModule({
@@ -45,7 +47,8 @@ const appRouts: Routes = [
     ProfileComponent,
     FriendsComponent,
     CategoryComponent,
-    FooterComponent
+    FooterComponent,
+    FriendComponent
   ],
   imports: [
     BrowserModule,
