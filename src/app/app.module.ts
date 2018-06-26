@@ -19,6 +19,9 @@ import { MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 
 const appRouts: Routes = [
@@ -51,7 +54,10 @@ const appRouts: Routes = [
     MatCheckboxModule,
     MatTabsModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
