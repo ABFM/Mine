@@ -1,17 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { AddComponent } from './add/add.component';
-import { MyUrlsComponent } from './my-urls/my-urls.component';
+import { AddComponent } from './home/add/add.component';
+import { MyUrlsComponent } from './home/my-urls/my-urls.component';
 import { HomeComponent } from './home/home.component';
-import { UrlsNavComponent } from './my-urls/urls-nav/urls-nav.component';
-import { UrlComponent } from './my-urls/url/url.component';
-import { ProfileComponent } from './profile/profile.component';
-import { FriendsComponent } from './friends/friends.component';
-import { CategoryComponent } from './category/category.component';
+import { UrlsNavComponent } from './home/my-urls/urls-nav/urls-nav.component';
+import { UrlComponent } from './home/my-urls/url/url.component';
+import { ProfileComponent } from './home/profile/profile.component';
+import { FriendsComponent } from './home/friends/friends.component';
+import { CategoryComponent } from './home/my-urls/category/category.component';
 import { DataService } from './services/data.service';
 import { FooterComponent } from './footer/footer.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -57,7 +58,8 @@ const appRouts: Routes = [
     MatDividerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    BrowserAnimationsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
