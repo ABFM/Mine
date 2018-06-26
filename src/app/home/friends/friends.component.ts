@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-friends',
@@ -6,36 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./friends.component.css']
 })
 export class FriendsComponent implements OnInit {
-friends = [
-  {
-    name: 'friend one',
-    image: 'https://www.infosecurityeurope.com/images/155_162_delegate_large.png?h=162&type=3&w=155&q=100&v=636595767522260796',
-    job: 'friend job'
-  },
-  {
-    name: 'friend two',
-    image: 'https://www.infosecurityeurope.com/images/155_162_delegate_large.png?h=162&type=3&w=155&q=100&v=636595767522260796',
-    job: 'friend job'
-  },
-  {
-    name: 'friend three',
-    image: 'https://www.infosecurityeurope.com/images/155_162_delegate_large.png?h=162&type=3&w=155&q=100&v=636595767522260796',
-    job: 'friend job'
-  },
-  {
-    name: 'friend four',
-    image: 'https://www.infosecurityeurope.com/images/155_162_delegate_large.png?h=162&type=3&w=155&q=100&v=636595767522260796',
-    job: 'friend job'
-  },
-  {
-    name: 'friend five',
-    image: 'https://www.infosecurityeurope.com/images/155_162_delegate_large.png?h=162&type=3&w=155&q=100&v=636595767522260796',
-    job: 'friend job'
-  }
-];
-  constructor() { }
+friends = [];
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.friends = this.data.getFriends();
   }
 
 }

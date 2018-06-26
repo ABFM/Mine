@@ -31,8 +31,8 @@ const appRouts: Routes = [
   { path: 'add', component: AddComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'friends', component: FriendsComponent },
-  { path: 'myurls', component: MyUrlsComponent },
-  { path: 'friends/:id', component: FriendComponent }
+  { path: 'friends/:id', component: FriendComponent },
+  { path: 'myurls', component: MyUrlsComponent }
 ];
 
 @NgModule({
