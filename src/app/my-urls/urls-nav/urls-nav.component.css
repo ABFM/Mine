@@ -5,10 +5,10 @@ li {
 li:hover {
     color: #ED213A;
 }
-.container {
+/* .container {
     position: fixed;
     top: 80px;
     width: 100%;
     text-align: center; 
     z-index: 1;
-}
+} */

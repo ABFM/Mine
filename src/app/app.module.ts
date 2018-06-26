@@ -14,6 +14,10 @@ import { FriendsComponent } from './friends/friends.component';
 import { CategoryComponent } from './category/category.component';
 import { DataService } from './services/data.service';
 import { FooterComponent } from './footer/footer.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 const appRouts: Routes = [
   {path: '', component: HomeComponent},
@@ -39,7 +43,11 @@ const appRouts: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRouts)
+    RouterModule.forRoot(appRouts),
+    NoopAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatTabsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

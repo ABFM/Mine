@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DataService } from '../services/data.service';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
-export class CategoryComponent implements OnInit, DoCheck {
+export class CategoryComponent implements OnInit {
   data = [
     {
       owner: 'owner name',
@@ -41,18 +41,12 @@ export class CategoryComponent implements OnInit, DoCheck {
       category: 'Photos'
     }
   ];
-  currentTab: string;
+  @Input() currentTab: string;
   urls = [];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.ngDoCheck();
-  }
-
-
-  ngDoCheck() {
-    this.currentTab = this.dataService.getCurrentTab();
     this.urls = this.data.filter((e) => {
       return e.category === this.currentTab;
     });
