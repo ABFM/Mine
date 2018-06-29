@@ -9,7 +9,10 @@ import { DataService } from '../../../services/data.service';
 })
 export class FriendComponent implements OnInit {
 
-  model = {};
+  model: {
+    name: string,
+    job: string
+  };
   constructor(
     private route: ActivatedRoute,
     private data: DataService
