@@ -1,19 +1,20 @@
 <div class="container">
-    <mat-card>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <mat-card>
         <mat-card-title>
             Add A URL To Mine :)
         </mat-card-title>
         <mat-form-field class="wide">
-          <input type="url" matInput placeholder="paste URL here...">
+          <input type="url" name="url" ngModel matInput placeholder="paste URL here...">
         </mat-form-field>
       <br>
         <mat-form-field class="wide">
-          <textarea matInput placeholder="give it a nice description..."></textarea>
+          <textarea matInput placeholder="give it a nice description..." name="description" ngModel></textarea>
         </mat-form-field>
       <br>
         <mat-form-field class="wide">
-          <mat-select placeholder="Select Category...">
-            <mat-option value="vidios">Videos</mat-option>
+          <mat-select placeholder="Select Category..." name="category" ngModel>
+            <mat-option value="videos">Videos</mat-option>
             <mat-option value="articles">Articles</mat-option>
             <mat-option value="photos">Photos</mat-option>
             <mat-option value="music">Music</mat-option>
@@ -21,6 +22,7 @@
           </mat-select>
         </mat-form-field>
         <br>
-        <button mat-stroked-button>Add To Mine!</button>
+        <button mat-stroked-button type="submit">Add To Mine!</button>
     </mat-card>    
+  </form>
 </div>

@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-
+  model = {};
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form) {
+    this.model = form.value;
+    console.log(this.model);
   }
 
 }
