@@ -26,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FriendComponent } from './home/friends/friend/friend.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 const appRouts: Routes = [
@@ -50,7 +51,8 @@ const appRouts: Routes = [
     FriendsComponent,
     CategoryComponent,
     FooterComponent,
-    FriendComponent
+    FriendComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
