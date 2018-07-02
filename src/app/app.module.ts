@@ -18,7 +18,7 @@ import { CategoryComponent } from './home/my-urls/category/category.component';
 import { DataService } from './services/data.service';
 import { FooterComponent } from './footer/footer.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatNativeDateModule} from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -27,9 +27,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FriendComponent } from './home/friends/friend/friend.component';
 import { SignupComponent } from './signup/signup.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 const appRouts: Routes = [
+  { path: 'signup', component: SignupComponent },
   { path: '', component: HomeComponent },
   { path: 'add', component: AddComponent },
   { path: 'profile', component: ProfileComponent },
@@ -68,7 +72,11 @@ const appRouts: Routes = [
     MatSelectModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatAutocompleteModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

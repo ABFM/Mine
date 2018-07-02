@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  countries = ['syria', 'jordan', 'lebanon', 'egypt'];
+  filterdCountries: string[];
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onFilterCountry(country: string) {
+    this.filterdCountries =  this.countries.filter((arrayCountry) => {
+      return arrayCountry.includes(country.toLowerCase());
+    });
   }
 
 }
