@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
-import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AddComponent } from './home/add/add.component';
@@ -30,17 +29,9 @@ import { SignupComponent } from './signup/signup.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { RoutingModule } from './routing/routing.module';
 
 
-const appRouts: Routes = [
-  { path: 'signup', component: SignupComponent },
-  { path: '', component: HomeComponent },
-  { path: 'add', component: AddComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'friends', component: FriendsComponent },
-  { path: 'friends/:id', component: FriendComponent },
-  { path: 'myurls', component: MyUrlsComponent }
-];
 
 @NgModule({
   declarations: [
@@ -60,7 +51,6 @@ const appRouts: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRouts),
     NoopAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -76,7 +66,8 @@ const appRouts: Routes = [
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    RoutingModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
