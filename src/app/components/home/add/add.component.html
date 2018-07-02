@@ -1,9 +1,10 @@
 <div class="container">
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <mat-card>
-        <mat-card-title>
-            Add A URL To Mine :)
-        </mat-card-title>
+      <div class="text-center mt-3">
+        <h2>
+          Add A URL To Mine :)
+        </h2>
+      </div>      
         <mat-form-field class="wide">
           <input 
           type="url" 
@@ -45,6 +46,5 @@
         </mat-form-field>
         <br>
         <button mat-stroked-button type="submit">Add To Mine!</button>
-    </mat-card>    
   </form>
 </div>
