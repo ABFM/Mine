@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// degine the user information schema;
 const userInfo = mongoose.Schema({
 	name: String,
 	country: String,
@@ -8,3 +10,7 @@ const userInfo = mongoose.Schema({
 	city: String,
 	job: String
 });
+
+
+// define the user info medel;
+exports.UserInfo = mongoose.model('UserInfo', userInfo);
