@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.bg-oran {
+    background-color: #FF5729;
+}
+.bg-darkTeal {
+    background-color: #00585E;
+}
+.bg-lightTeal {
+    background-color: #009494;
+
+}
+.bg-myDark {
+    background-color: #454445
+
+}
+.text-orange {
+    color: #FF5729;
+}
+.text-darkTeal {
+    color: #00585E;
+}
+.text-lightTeal {
+    color: #009494;
+
+}
+.text-myDark {
+    color: #454445
+
+}
+.text-nunito {
+    font-family: Nunito;
+}
+.select {
+    padding: 25% 0;
+    margin-top: 18%;
+    margin-bottom: 18%;
+    color: white;
+    background: -webkit-linear-gradient(#e53935,#e35d5b);
+    font-family: Nunito;
+}
+.select:hover {
+    box-shadow: 2px 2px 15px #888;
+    background: -webkit-linear-gradient(#B24592,#F15F79);
+    padding: 26% 0; 
+
+}
+body {
+    background: url(https://www.toptal.com/designers/subtlepatterns/patterns/seigaiha.png);
+    background-size: 20%;
+}
