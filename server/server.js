@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const router = require('../server/router/Router');
 const mongoose = require('mongoose');
-const db_config = require('../config/database');
+const db_config = require('../config/_config');
 const db = mongoose.connection;
 
 // select the statics folder;
